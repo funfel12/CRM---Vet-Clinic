@@ -1,4 +1,6 @@
 using CRM2.Data;
+using CRM2.Data.Interface;
+using CRM2.Data.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -28,8 +30,8 @@ namespace CRM2
             {
                 configuration.RootPath = "ClientApp/dist";
             });
-
             services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddScoped<IAuthRepository, AuthRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
