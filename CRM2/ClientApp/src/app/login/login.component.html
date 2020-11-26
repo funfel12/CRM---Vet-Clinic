@@ -1,33 +1,35 @@
 
 <body>
-  <div class="wrapper fadeInDown">
-    <div id="formContent">
 
 
 
-      <!-- Icon -->
-      <div class="fadeIn first">
-        <img src="https://st3.depositphotos.com/6935094/12490/v/950/depositphotos_124905844-stock-illustration-logo-veterinary-clinic.jpg" id="icon" alt="User Icon" />
-      </div>
+  <div class="login-form-flex">
+    <form #loginForm="ngForm" (submit)="login()">
+      <mat-card>
+        <mat-card-title>
+          <img src="https://image.freepik.com/free-vector/mascot-logo-dog-animal-care_147838-2.jpg" alt="Avatar">
+          <br />
+          <div class="name">VET-CRM</div>
+        </mat-card-title>
 
-      <!-- Login Form -->
-      <form class="example-form">
-        <mat-form-field class="example-full-width" color="accent">
-          <mat-label>Login</mat-label>
-          <input matInput placeholder="Login">
-        </mat-form-field>
-        <br />
-        <mat-form-field class="example-full-width" color="accent">
-          <mat-label>Hasło</mat-label>
-          <input matInput placeholder="Hasło">
-        </mat-form-field>
-        <br />
-        <button mat-stroked-button color="accent">Logowanie</button>
-        <br />
-      </form>
+        <mat-card-content>
+          <mat-form-field>
+            <input [(ngModel)]="model.username" name="username" type="text" matInput placeholder="Login" required>
+          </mat-form-field>
+          <br /><br />
+          <mat-form-field>
+            <input [(ngModel)]="model.password" name="password" type="password" matInput placeholder="Hasło" required>
+          </mat-form-field>
+        </mat-card-content>
+        <mat-card-actions>
+          <div class="button-flex-container">
+            <button [disabled] ="!loginForm.valid" mat-stroked-button color="accent" type="submit">Logowanie</button>
+          </div>
+        </mat-card-actions>
 
-
-
-    </div>
+      </mat-card>
+    </form>
   </div>
+
 </body>
+
