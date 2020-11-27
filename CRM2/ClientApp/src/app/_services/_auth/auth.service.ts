@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { JwtHelperService } from "@auth0/angular-jwt";
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,8 @@ export class AuthService {
   {
 
   }
+
+  jwtHelper = new JwtHelperService();
 
   baseUrl = 'http://localhost:49913/api/auth/';
   //http://localhost:49913/api/auth/login
@@ -23,4 +26,16 @@ export class AuthService {
         }
       }));
   }
+
+  loggedIn() {
+
+    const token = localStorage.getItem('token');
+    //Gdy coś jest w tokenie !! true gdy nie false
+    //If variable token it's empty return false
+    //This function get session token and make sure it's user a logged or not.
+    return !this.jwtHelper.isTokenExpired(token);
+
+
+  }
 }
+

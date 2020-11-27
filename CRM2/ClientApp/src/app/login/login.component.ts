@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/_auth/auth.service';
+import { AlertifyService } from '../_services/_alertify/alertify.service';
+
 
 @Component({
   selector: 'app-login',
@@ -8,7 +10,9 @@ import { AuthService } from '../_services/_auth/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private alertify: AlertifyService) { }
+
+
 
   model: any = {};
 
@@ -17,9 +21,19 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.authService.login(this.model).subscribe(next => {
-      console.log("Zalogowałeś się do aplikacji");
+      this.alertify.sucess("Logowanie udane!")
     }, error => {
-      console.log("Wystąpił błąd logowania");
+        this.alertify.error("Wystąpił błąd logowania!");
       });
   }
+  loggedIn() {
+    return this.authService.loggedIn()
+  }
+
+  logout() {
+
+    localStorage.removeItem('token');
+    console.log('Zostałeś wylogowany');
+  }
+
 }

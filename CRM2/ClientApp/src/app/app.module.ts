@@ -48,6 +48,7 @@ import { MatTreeModule } from '@angular/material/tree';
 import { OverlayModule } from '@angular/cdk/overlay';
 
 import { AuthService } from './_services/_auth/auth.service';
+import { AlertifyService } from './_services/_alertify/alertify.service';
 
 
 
@@ -148,7 +149,7 @@ import { AuthService } from './_services/_auth/auth.service';
     OverlayModule,
     MatFormFieldModule
   ],
-  providers: [AuthService],
+  providers: [AuthService, AlertifyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
