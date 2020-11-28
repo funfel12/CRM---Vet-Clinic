@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../_services/_auth/auth.service';
-import { AlertifyService } from '../_services/_alertify/alertify.service';
+import { AlertifyService } from '../_services/_alertify/alertify.service'; 
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,7 +11,7 @@ import { AlertifyService } from '../_services/_alertify/alertify.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private authService: AuthService, private alertify: AlertifyService) { }
+  constructor(private authService: AuthService, private alertify: AlertifyService, private route: Router) { }
 
 
 
@@ -22,6 +23,7 @@ export class LoginComponent implements OnInit {
   login() {
     this.authService.login(this.model).subscribe(next => {
       this.alertify.sucess("Logowanie udane!")
+      this.route.navigate(['/head']); 
     }, error => {
         this.alertify.error("Wystąpił błąd logowania!");
       });
