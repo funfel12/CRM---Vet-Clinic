@@ -49,6 +49,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
 
 import { AuthService } from './_services/_auth/auth.service';
 import { AlertifyService } from './_services/_alertify/alertify.service';
+import { HeadComponent } from './head/head.component';
 
 
 
@@ -59,7 +60,8 @@ import { AlertifyService } from './_services/_alertify/alertify.service';
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    LoginComponent
+    LoginComponent,
+    HeadComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -69,7 +71,8 @@ import { AlertifyService } from './_services/_alertify/alertify.service';
       { path: '', component: HomeComponent, pathMatch: 'full' },
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
-      { path: 'login', component: LoginComponent}
+      { path: 'login', component: LoginComponent },
+      { path: 'head', component: HeadComponent }
     ]),
     BrowserAnimationsModule,
     MatBadgeModule,
