@@ -25,7 +25,6 @@ namespace CRM2.Models
         public string vaccine_current_flag { get; set; }
         [MaxLength(500)]
         public string vaccine_certifate { get; set; }
-
         public int visit_id { get; set; }
 
 

@@ -27,10 +27,13 @@ namespace CRM2.Models
         public String visit_doctor { get; set; }
         public String visit_exam_doc { get; set; }
         public int pet_id { get; set; }
+        public int vet_id { get; set; }
         public ICollection<Med> meds { get; set; }
         public ICollection<Vaccine> vaccines { get; set; }
         public ICollection<Service> services { get; set; }
         public ICollection<Test> tests { get; set; }
+
+
 
 
 

@@ -27,6 +27,9 @@ namespace CRM2.Models
         public String vet_email { get; set; }
         [MaxLength(500)]
         public String vet_med_rec_site { get; set; }
+        public ICollection<Visit> visitss { get; set; }
+
+
 
 
     }
