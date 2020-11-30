@@ -1,6 +1,8 @@
 using CRM2.Data;
 using CRM2.Data.Interface;
+using CRM2.Data.InterfaceRepository.GenericRepository;
 using CRM2.Data.Repository;
+using CRM2.Data.Repository.EfRepo;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -30,7 +32,11 @@ namespace CRM2
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+
+            services.AddScoped(typeof(IGenericRepository<>), typeof(EfRepository<>));
+
             services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddScoped<IAuthRepository, AuthRepository>();
         }
 
