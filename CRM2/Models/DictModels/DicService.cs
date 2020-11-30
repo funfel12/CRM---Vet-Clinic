@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CRM2.Models.DictModels
 {
-    public class DicServices : BaseEntity
+    public class DicService : BaseEntity
     {
         [Key]
         public int dic_services_id { get; set; }

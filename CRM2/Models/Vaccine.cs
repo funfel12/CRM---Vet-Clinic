@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -25,7 +26,10 @@ namespace CRM2.Models
         public string vaccine_current_flag { get; set; }
         [MaxLength(500)]
         public string vaccine_certifate { get; set; }
+
+        [ForeignKey("Visit")]
         public int visit_id { get; set; }
+        public Visit Visit { get; set; }
 
 
 

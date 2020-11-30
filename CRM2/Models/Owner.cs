@@ -24,5 +24,6 @@ namespace CRM2.Models
         [MaxLength(300)]
         public String owner_email { get; set; }
         public ICollection<Pet> Pets { get; set; }
+
     }
 }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -26,8 +27,12 @@ namespace CRM2.Models
         [MaxLength(500)]
         public String visit_doctor { get; set; }
         public String visit_exam_doc { get; set; }
+        [ForeignKey("Pet")]
         public int pet_id { get; set; }
+        public Pet Pet { get; set;}
+        [ForeignKey("Vet")]
         public int vet_id { get; set; }
+        public Vet Vet { get; set; }
         public ICollection<Med> meds { get; set; }
         public ICollection<Vaccine> vaccines { get; set; }
         public ICollection<Service> services { get; set; }

@@ -7,11 +7,12 @@ using System.Threading.Tasks;
 
 namespace CRM2.Models.DictModels
 {
-    public class DicMeds : BaseEntity
+    public class DicVaccine : BaseEntity
     {
         [Key]
-        public int dic_meds_id { get; set; }
+        public int dic_vaccines_id { get; set; }
         [MaxLength(500)]
-        public String dic_meds_name { get; set; }
+        public String dic_vaccines_name { get; set; }
     }
+
 }

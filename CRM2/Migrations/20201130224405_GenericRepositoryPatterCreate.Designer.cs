@@ -4,14 +4,16 @@ using CRM2.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CRM2.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20201130224405_GenericRepositoryPatterCreate")]
+    partial class GenericRepositoryPatterCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -119,9 +121,12 @@ namespace CRM2.Migrations
                     b.Property<int>("visit_id")
                         .HasColumnType("int");
 
+                    b.Property<int?>("visit_id1")
+                        .HasColumnType("int");
+
                     b.HasKey("med_id");
 
-                    b.HasIndex("visit_id");
+                    b.HasIndex("visit_id1");
 
                     b.ToTable("Meds");
                 });
@@ -178,6 +183,9 @@ namespace CRM2.Migrations
                     b.Property<int>("owner_id")
                         .HasColumnType("int");
 
+                    b.Property<int?>("owner_id1")
+                        .HasColumnType("int");
+
                     b.Property<string>("pet_breed")
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
@@ -207,7 +215,7 @@ namespace CRM2.Migrations
 
                     b.HasKey("pet_id");
 
-                    b.HasIndex("owner_id");
+                    b.HasIndex("owner_id1");
 
                     b.ToTable("Pets");
                 });
@@ -247,9 +255,12 @@ namespace CRM2.Migrations
                     b.Property<int>("visit_id")
                         .HasColumnType("int");
 
+                    b.Property<int?>("visit_id1")
+                        .HasColumnType("int");
+
                     b.HasKey("serv_id");
 
-                    b.HasIndex("visit_id");
+                    b.HasIndex("visit_id1");
 
                     b.ToTable("Services");
                 });
@@ -301,9 +312,12 @@ namespace CRM2.Migrations
                     b.Property<int>("visit_id")
                         .HasColumnType("int");
 
+                    b.Property<int?>("visit_id1")
+                        .HasColumnType("int");
+
                     b.HasKey("test_id");
 
-                    b.HasIndex("visit_id");
+                    b.HasIndex("visit_id1");
 
                     b.ToTable("Tests");
                 });
@@ -372,9 +386,12 @@ namespace CRM2.Migrations
                     b.Property<int>("visit_id")
                         .HasColumnType("int");
 
+                    b.Property<int?>("visit_id1")
+                        .HasColumnType("int");
+
                     b.HasKey("vaccine_id");
 
-                    b.HasIndex("visit_id");
+                    b.HasIndex("visit_id1");
 
                     b.ToTable("Vaccines");
                 });
@@ -443,11 +460,17 @@ namespace CRM2.Migrations
                     b.Property<int>("pet_id")
                         .HasColumnType("int");
 
+                    b.Property<int?>("pet_id1")
+                        .HasColumnType("int");
+
                     b.Property<string>("routine_visit_summary")
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
 
                     b.Property<int>("vet_id")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("vet_id1")
                         .HasColumnType("int");
 
                     b.Property<string>("visit_category")
@@ -477,85 +500,57 @@ namespace CRM2.Migrations
 
                     b.HasKey("visit_id");
 
-                    b.HasIndex("pet_id");
+                    b.HasIndex("pet_id1");
 
-                    b.HasIndex("vet_id");
+                    b.HasIndex("vet_id1");
 
                     b.ToTable("Visits");
                 });
 
             modelBuilder.Entity("CRM2.Models.Med", b =>
                 {
-                    b.HasOne("CRM2.Models.Visit", "Visit")
+                    b.HasOne("CRM2.Models.Visit", null)
                         .WithMany("meds")
-                        .HasForeignKey("visit_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Visit");
+                        .HasForeignKey("visit_id1");
                 });
 
             modelBuilder.Entity("CRM2.Models.Pet", b =>
                 {
-                    b.HasOne("CRM2.Models.Owner", "Owner")
+                    b.HasOne("CRM2.Models.Owner", null)
                         .WithMany("Pets")
-                        .HasForeignKey("owner_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Owner");
+                        .HasForeignKey("owner_id1");
                 });
 
             modelBuilder.Entity("CRM2.Models.Service", b =>
                 {
-                    b.HasOne("CRM2.Models.Visit", "Visit")
+                    b.HasOne("CRM2.Models.Visit", null)
                         .WithMany("services")
-                        .HasForeignKey("visit_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Visit");
+                        .HasForeignKey("visit_id1");
                 });
 
             modelBuilder.Entity("CRM2.Models.Test", b =>
                 {
-                    b.HasOne("CRM2.Models.Visit", "Visit")
+                    b.HasOne("CRM2.Models.Visit", null)
                         .WithMany("tests")
-                        .HasForeignKey("visit_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Visit");
+                        .HasForeignKey("visit_id1");
                 });
 
             modelBuilder.Entity("CRM2.Models.Vaccine", b =>
                 {
-                    b.HasOne("CRM2.Models.Visit", "Visit")
+                    b.HasOne("CRM2.Models.Visit", null)
                         .WithMany("vaccines")
-                        .HasForeignKey("visit_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Visit");
+                        .HasForeignKey("visit_id1");
                 });
 
             modelBuilder.Entity("CRM2.Models.Visit", b =>
                 {
-                    b.HasOne("CRM2.Models.Pet", "Pet")
-                        .WithMany("visits")
-                        .HasForeignKey("pet_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("CRM2.Models.Pet", null)
+                        .WithMany("Meds")
+                        .HasForeignKey("pet_id1");
 
-                    b.HasOne("CRM2.Models.Vet", "Vet")
-                        .WithMany("visits")
-                        .HasForeignKey("vet_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Pet");
-
-                    b.Navigation("Vet");
+                    b.HasOne("CRM2.Models.Vet", null)
+                        .WithMany("visitss")
+                        .HasForeignKey("vet_id1");
                 });
 
             modelBuilder.Entity("CRM2.Models.Owner", b =>
@@ -565,12 +560,12 @@ namespace CRM2.Migrations
 
             modelBuilder.Entity("CRM2.Models.Pet", b =>
                 {
-                    b.Navigation("visits");
+                    b.Navigation("Meds");
                 });
 
             modelBuilder.Entity("CRM2.Models.Vet", b =>
                 {
-                    b.Navigation("visits");
+                    b.Navigation("visitss");
                 });
 
             modelBuilder.Entity("CRM2.Models.Visit", b =>
