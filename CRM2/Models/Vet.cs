@@ -9,8 +9,8 @@ namespace CRM2.Models
 {
     public class Vet : BaseEntity
     {
-        [Key]
-        public int vet_id { get; set; }
+        //[Key]
+        //public int vet_id { get; set; }
         [MaxLength(200)]
         public String vet_name { get; set; }
         [MaxLength(200)]

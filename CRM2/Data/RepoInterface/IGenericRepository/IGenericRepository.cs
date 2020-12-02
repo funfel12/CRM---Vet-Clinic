@@ -9,7 +9,8 @@ namespace CRM2.Data.InterfaceRepository.GenericRepository
 {
     public interface IGenericRepository<T> where T: BaseEntity
     {
-     
+
+        Task<T> GetById(int id);
         Task<T> FirstOrDefault(Expression<Func<T, bool>> predicate);
         Task Add(T entity);
         Task Update(T entity);

@@ -10,8 +10,8 @@ namespace CRM2.Models
 {
     public class Visit : BaseEntity
     {
-        [Key]
-        public int visit_id { get; set; }
+        //[Key]
+       // public int visit_id { get; set; }
         public DateTime visit_date {get; set;}
         public float visit_weight { get; set; }
         [MaxLength(500)]

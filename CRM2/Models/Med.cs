@@ -10,8 +10,8 @@ namespace CRM2.Models
 {
     public class Med : BaseEntity
     {
-        [Key]
-        public int med_id { get; set; }
+        //[Key]
+       // public int med_id { get; set; }
         [MaxLength(200)]
         public String med_name { get; set; }
         [MaxLength(500)]

@@ -10,8 +10,8 @@ namespace CRM2.Models
 {
     public class Test : BaseEntity
     {
-        [Key]
-        public int test_id { get; set; }
+        /*[Key]
+        public int test_id { get; set; }*/
         [MaxLength(200)]
         public String test_name { get; set; }
         [MaxLength(1000)]
@@ -28,7 +28,6 @@ namespace CRM2.Models
         public String test_category { get; set; }
         [MaxLength(5000)]
         public String test_result_doc { get; set; }
-
         [ForeignKey("Visit")]
         public int visit_id { get; set; }
         public Visit Visit { get; set; }

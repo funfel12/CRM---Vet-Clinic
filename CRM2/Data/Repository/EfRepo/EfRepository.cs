@@ -26,6 +26,8 @@ namespace CRM2.Data.Repository.EfRepo
         #region Public Methods
 
 
+        public async Task<T> GetById(int id) => await _context.Set<T>().FindAsync(id);
+
         public Task<T> FirstOrDefault(Expression<Func<T, bool>> predicate)
             => _context.Set<T>().FirstOrDefaultAsync(predicate);
 

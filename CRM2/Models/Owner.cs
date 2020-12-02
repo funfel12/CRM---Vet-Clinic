@@ -9,8 +9,8 @@ namespace CRM2.Models
 {
     public class Owner : BaseEntity
     {
-        [Key]
-        public int owner_id { get; set; }
+        //[Key]
+        //public int owner_id { get; set; }
         [MaxLength(200)]
         public String owner_first_name { get; set; }
         [MaxLength(200)]

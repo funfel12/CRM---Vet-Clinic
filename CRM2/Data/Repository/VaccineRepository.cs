@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CRM2.Data.Repository
 {
-    public class VaccineRepository : EfRepository<Vaccine>, IDicVaccineRepository
+    public class VaccineRepository : EfRepository<Vaccine>, IVaccineRepository
     {
         public VaccineRepository(DataContext context) : base(context) { }
     }

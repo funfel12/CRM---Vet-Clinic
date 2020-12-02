@@ -3,6 +3,8 @@ using CRM2.Data.Interface;
 using CRM2.Data.InterfaceRepository.GenericRepository;
 using CRM2.Data.Repository;
 using CRM2.Data.Repository.EfRepo;
+using CRM2.Models;
+using CRM2.Models.DictModels;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -34,6 +36,17 @@ namespace CRM2
             });
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(EfRepository<>));
+            services.AddScoped<IGenericRepository<Med>, MedRepository>();
+            services.AddScoped<IGenericRepository<Owner>, OwnerRepository>();
+            services.AddScoped<IGenericRepository<Pet>, PetRepository>();
+            services.AddScoped<IGenericRepository<Service>, ServiceRepository>();
+            services.AddScoped<IGenericRepository<Test>, TestRepository>();
+            services.AddScoped<IGenericRepository<Vaccine>, VaccineRepository>();
+            services.AddScoped<IGenericRepository<Vet>, VetRepository>();
+            services.AddScoped<IGenericRepository<DicMed>, DicMedRepository>();
+            services.AddScoped<IGenericRepository<DicService>, DicServiceRepository>();
+            services.AddScoped<IGenericRepository<DicVaccine>, DicVaccineRepository>();
+      
 
             services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 

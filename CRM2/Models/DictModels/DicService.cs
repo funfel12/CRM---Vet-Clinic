@@ -9,8 +9,8 @@ namespace CRM2.Models.DictModels
 {
     public class DicService : BaseEntity
     {
-        [Key]
-        public int dic_services_id { get; set; }
+        //[Key]
+       // public int dic_services_id { get; set; }
         [MaxLength(500)]
         public String dic_services_name { get; set; }
     }

@@ -10,8 +10,8 @@ namespace CRM2.Models
 {
     public class Pet : BaseEntity
     {
-        [Key]
-        public int pet_id { get; set; }
+        //[Key]
+        //public int pet_id { get; set; }
         [MaxLength(200)]
         public int pet_name { get; set; }
         public DateTime pet_dob { get; set; }

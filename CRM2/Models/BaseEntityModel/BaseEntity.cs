@@ -7,6 +7,7 @@ namespace CRM2.Models.BaseEntityModel
 {
     public class BaseEntity
     {
+        public int Id { get; set; }
         public DateTime CreatedDate { get; set; }
     }
 }

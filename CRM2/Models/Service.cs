@@ -10,8 +10,8 @@ namespace CRM2.Models
 {
     public class Service : BaseEntity
     {
-        [Key]
-        public int serv_id { get; set; }
+        //[Key]
+        //public int serv_id { get; set; }
         [MaxLength(500)]
         public String serv_name { get; set; }
         [MaxLength(500)]
