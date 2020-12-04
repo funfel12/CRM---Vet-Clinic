@@ -1,15 +1,35 @@
 import { Component, OnInit } from '@angular/core';
+import { ICellRenderer } from 'ag-grid-community';
 
 @Component({
   selector: 'app-button-render',
-  templateUrl: './button-render.component.html',
-  styleUrls: ['./button-render.component.css']
+  template: `<button mat-stroked-button color="primary" type="primary" (click)="onClick($event)">{{label}}</button>`
 })
-export class ButtonRenderComponent implements OnInit {
 
-  constructor() { }
+export class ButtonRenderComponent implements ICellRenderer {
+  params;
+  label: string;
 
-  ngOnInit() {
+  agInit(params): void {
+    this.params = params;
+    this.label = this.params.label || null;
+  } IOwnerRepository
+  refresh(params?: any): boolean {
+    return true;
+
+  }
+
+  onClick($event) {
+    if (this.params.onClick instanceof Function) {
+      // put anything into params u want pass into parents component
+      const params = {
+        event: $event,
+        rowData: this.params.node.data
+        // ...something
+      }
+      this.params.onClick(params);
+
+    }
   }
 
 }

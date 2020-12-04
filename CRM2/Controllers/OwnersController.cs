@@ -1,0 +1,57 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using CRM2.Data;
+using CRM2.Models;
+using CRM2.Data.RepoInterface.IGenericRepository;
+using CRM2.Dtos.OwnerDtos;
+
+namespace CRM2.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class OwnersController : ControllerBase
+    {
+        private readonly IOwnerRepository _repository;
+
+        public OwnersController(IOwnerRepository repository)
+        {
+            _repository = repository;
+        }
+
+        [HttpPost("add")]
+        public async Task<IActionResult> AddOwner(OwnerAddDTO addDT0)
+        {
+            Owner owner = new Owner
+            {
+                CreatedDate = DateTime.UtcNow,
+                owner_first_name = addDT0.owner_first_name,
+                owner_last_name = addDT0.owner_last_name,
+                owner_adress = addDT0.owner_adress,
+                owner_city = addDT0.owner_city,
+                owner_email = addDT0.owner_email,
+                owner_telephone = addDT0.owner_telephone
+
+            };
+            await _repository.Add(owner);
+            return StatusCode(201);
+        }
+
+        [HttpPost("get")]
+        public async Task<IActionResult> GetAllOwner()
+        {
+            return await _repository.GetAll();
+        }
+        [HttpDelete]
+        public async Task<IActionResult> DeleteOwner()
+        {
+
+        }
+    }
+
+    
+}

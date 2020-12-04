@@ -52,6 +52,9 @@ import { AgGridModule } from 'ag-grid-angular';
 import { AuthService } from './_services/_auth/auth.service';
 import { AlertifyService } from './_services/_alertify/alertify.service';
 import { HeadComponent } from './head/head.component';
+import { ButtonRenderComponent } from './_render/button-render/button-render.component';
+
+
 
 
 
@@ -63,7 +66,8 @@ import { HeadComponent } from './head/head.component';
     CounterComponent,
     FetchDataComponent,
     LoginComponent,
-    HeadComponent
+    HeadComponent,
+    ButtonRenderComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -114,7 +118,7 @@ import { HeadComponent } from './head/head.component';
     OverlayModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-    AgGridModule.withComponents([])
+    AgGridModule.withComponents([ButtonRenderComponent])
   ],
   exports: [MatBadgeModule,
     MatBottomSheetModule,

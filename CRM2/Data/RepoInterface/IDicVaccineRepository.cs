@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CRM2.Data.RepoInterface.IGenericRepository
 {
-    interface IDicVaccineRepository:  IGenericRepository<DicVaccine>
+    public interface IDicVaccineRepository:  IGenericRepository<DicVaccine>
     {
     }
 }

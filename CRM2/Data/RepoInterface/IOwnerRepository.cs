@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CRM2.Data.RepoInterface.IGenericRepository
 {
-    interface IOwnerRepository : IGenericRepository<Owner>
+    public interface IOwnerRepository : IGenericRepository<Owner>
     {
     }
 }

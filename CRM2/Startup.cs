@@ -1,6 +1,7 @@
 using CRM2.Data;
 using CRM2.Data.Interface;
 using CRM2.Data.InterfaceRepository.GenericRepository;
+using CRM2.Data.RepoInterface.IGenericRepository;
 using CRM2.Data.Repository;
 using CRM2.Data.Repository.EfRepo;
 using CRM2.Models;
@@ -46,11 +47,24 @@ namespace CRM2
             services.AddScoped<IGenericRepository<DicMed>, DicMedRepository>();
             services.AddScoped<IGenericRepository<DicService>, DicServiceRepository>();
             services.AddScoped<IGenericRepository<DicVaccine>, DicVaccineRepository>();
-      
+
+            services.AddScoped<IMedRepository, MedRepository>();
+            services.AddScoped<IOwnerRepository, OwnerRepository>();
+            services.AddScoped<IPetRepository, PetRepository>();
+            services.AddScoped<IServiceRepository, ServiceRepository>();
+            services.AddScoped<ITestRepository, TestRepository>();
+            services.AddScoped<IVaccineRepository, VaccineRepository>();
+            services.AddScoped<IVetRepository, VetRepository>();
+            services.AddScoped<IDicMedRepository, DicMedRepository>();
+            services.AddScoped<IDicServiceRepository, DicServiceRepository>();
+            services.AddScoped<IDicVaccineRepository, DicVaccineRepository>();
+
+            services.AddScoped<IAuthRepository, AuthRepository>();
+
 
             services.AddDbContext<DataContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddScoped<IAuthRepository, AuthRepository>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

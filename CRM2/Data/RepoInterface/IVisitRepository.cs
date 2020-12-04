@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CRM2.Data.RepoInterface.IGenericRepository
 {
-    interface IVisitRepository : IGenericRepository<Visit>
+    public interface IVisitRepository : IGenericRepository<Visit>
     {
     }
 }

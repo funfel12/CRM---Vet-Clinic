@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CRM2.Data.RepoInterface.IGenericRepository
 {
-    interface IDicMedRepository : IGenericRepository<DicMed>
+    public interface IDicMedRepository : IGenericRepository<DicMed>
     {
     }
 }

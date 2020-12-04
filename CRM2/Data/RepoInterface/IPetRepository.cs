@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CRM2.Data.RepoInterface.IGenericRepository
 {
-    interface IPetRepository: IGenericRepository<Pet>
+    public interface IPetRepository: IGenericRepository<Pet>
     {
     }
 }
