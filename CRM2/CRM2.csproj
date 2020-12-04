@@ -31,9 +31,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\_model\Owner.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="ClientApp\src\app\_render\_button_render\" />
+    <Folder Include="ClientApp\src\app\_services\_owner\" />
     <Folder Include="ClientApp\src\app\_services\_alertify\" />
     <Folder Include="ClientApp\src\app\_services\_auth\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\_model\Owner.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

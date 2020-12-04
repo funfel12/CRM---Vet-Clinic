@@ -44,12 +44,15 @@ namespace CRM2.Controllers
         [HttpPost("get")]
         public async Task<IActionResult> GetAllOwner()
         {
-            return await _repository.GetAll();
+            var data = await _repository.GetAll();
+            return Ok(data);
         }
-        [HttpDelete]
-        public async Task<IActionResult> DeleteOwner()
-        {
 
+        [HttpDelete("delete")]
+        public async Task<IActionResult> DeleteOwner(int id)
+        {
+            await _repository.Remove(await _repository.GetById(id));
+            return Ok();
         }
     }
 
