@@ -26,6 +26,8 @@
     "@angular/router": "8.2.12",
     "@auth0/angular-jwt": "^5.0.2",
     "@nguniversal/module-map-ngfactory-loader": "8.1.1",
+    "ag-grid-angular": "^24.1.0",
+    "ag-grid-community": "^24.1.0",
     "alertifyjs": "^1.13.1",
     "aspnet-prerendering": "^3.0.1",
     "bootstrap": "^4.3.1",

@@ -47,6 +47,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { OverlayModule } from '@angular/cdk/overlay';
 
+import { AgGridModule } from 'ag-grid-angular';
+
 import { AuthService } from './_services/_auth/auth.service';
 import { AlertifyService } from './_services/_alertify/alertify.service';
 import { HeadComponent } from './head/head.component';
@@ -111,9 +113,8 @@ import { HeadComponent } from './head/head.component';
     MatTreeModule,
     OverlayModule,
     MatFormFieldModule,
-    ReactiveFormsModule
-    
-    
+    ReactiveFormsModule,
+    AgGridModule.withComponents([])
   ],
   exports: [MatBadgeModule,
     MatBottomSheetModule,
