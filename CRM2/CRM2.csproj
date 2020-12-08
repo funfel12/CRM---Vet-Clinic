@@ -35,6 +35,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="ClientApp\src\app\_dialog\owner\add\" />
     <Folder Include="ClientApp\src\app\_render\_button_render\" />
     <Folder Include="ClientApp\src\app\_services\_owner\" />
     <Folder Include="ClientApp\src\app\_services\_alertify\" />

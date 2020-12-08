@@ -53,6 +53,8 @@ import { AuthService } from './_services/_auth/auth.service';
 import { AlertifyService } from './_services/_alertify/alertify.service';
 import { HeadComponent } from './head/head.component';
 import { ButtonRenderComponent } from './_render/button-render/button-render.component';
+import { OwnerAddDialogComponent } from './_dialog/owner/add/owner-add-dialog/owner-add-dialog.component';
+
 
 
 
@@ -67,7 +69,8 @@ import { ButtonRenderComponent } from './_render/button-render/button-render.com
     FetchDataComponent,
     LoginComponent,
     HeadComponent,
-    ButtonRenderComponent
+    ButtonRenderComponent,
+    OwnerAddDialogComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -116,9 +119,11 @@ import { ButtonRenderComponent } from './_render/button-render/button-render.com
     MatTooltipModule,
     MatTreeModule,
     OverlayModule,
+
     MatFormFieldModule,
     ReactiveFormsModule,
-    AgGridModule.withComponents([ButtonRenderComponent])
+    AgGridModule.withComponents([ButtonRenderComponent]),
+
   ],
   exports: [MatBadgeModule,
     MatBottomSheetModule,
@@ -156,8 +161,10 @@ import { ButtonRenderComponent } from './_render/button-render/button-render.com
     MatTreeModule,
     OverlayModule,
     MatFormFieldModule
+
   ],
   providers: [AuthService, AlertifyService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [OwnerAddDialogComponent]
 })
 export class AppModule { }
