@@ -49,10 +49,30 @@ namespace CRM2.Controllers
             return Ok(data);
         }
 
-        [HttpDelete("delete")]
+        [HttpDelete("delete/{id:int}")]
         public async Task<IActionResult> DeleteOwner(int id)
         {
             await _repository.Remove(await _repository.GetById(id));
+            return Ok();
+        }
+
+        [HttpPost("update")]
+        public async Task<IActionResult> UpdateOwner (OwnerEditDTO editDT0)
+        {
+            Owner owner = new Owner
+            {
+                Id = editDT0.Id,
+                CreatedDate = DateTime.UtcNow,
+                owner_first_name = editDT0.owner_first_name,
+                owner_last_name = editDT0.owner_last_name,
+                owner_adress = editDT0.owner_adress,
+                owner_city = editDT0.owner_city,
+                owner_email = editDT0.owner_email,
+                owner_telephone = editDT0.owner_telephone
+
+            };
+            _repository.Update(owner);
+
             return Ok();
         }
     }

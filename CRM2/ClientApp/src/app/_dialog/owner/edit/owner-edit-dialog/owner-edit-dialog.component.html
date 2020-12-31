@@ -1,0 +1,50 @@
+
+<h3 mat-dialog-title color="accent">
+  <button mat-icon-button color="warn" (click)="dialog.closeAll()">
+    <mat-icon>cancel</mat-icon>
+    Edytowanie
+  </button>
+</h3>
+
+<form #ownerEditForm="ngForm" (submit)="editOwner()">
+  <div style="width: 50%; float:left">
+    <mat-form-field>
+      <input [(ngModel)]="dataFromMotherComponent.anyProperty.owner_first_name" name="owner_first_name" value="test" type="text" matInput placeholder="Imię" required>
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <input [(ngModel)]="dataFromMotherComponent.anyProperty.owner_last_name" name="owner_last_name" type="text" matInput placeholder="Nazwisko" required>
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <input [(ngModel)]="dataFromMotherComponent.anyProperty.owner_adress" name="owner_adress" type="text" matInput placeholder="Ulica" required>
+    </mat-form-field>
+    <br />
+
+
+  </div>
+
+  <div style="width: 50%; float:right">
+    <div mat-dialog-content>
+      <mat-form-field>
+        <input [(ngModel)]="dataFromMotherComponent.anyProperty.owner_city" name="owner_city" type="text" matInput placeholder="Miasto" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input [(ngModel)]="dataFromMotherComponent.anyProperty.owner_telephone" name="owner_telephone" type="text" matInput placeholder="Telefon" required>
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <input [(ngModel)]="dataFromMotherComponent.anyProperty.owner_email" name="owner_email" type="text" matInput placeholder="Email" required>
+      </mat-form-field>
+
+    </div>
+    <div mat-dialog-actions>
+
+      <button [disabled]="!ownerEditForm.valid" type="submit" mat-stroked-button color="accent" cdkFocusInitial>Akceptuje</button>
+      <button mat-stroked-button color="warn" type="button" (click)="dialog.closeAll()"><mat-icon>cancel</mat-icon>Nie dziękuje</button>
+
+
+
+    </div>
+  </div>
+</form>

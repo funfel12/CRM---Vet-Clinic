@@ -1,0 +1,14 @@
+
+<h3 mat-dialog-title color="accent">
+  <button mat-icon-button color="warn" (click)="dialog.closeAll()">
+    <mat-icon>cancel</mat-icon>
+    Czy chcesz usunąć podany element ?
+  </button>
+</h3>
+  <mat-dialog-content>
+    <p >Naciskając "tak", trwale usuniesz element. <br />Czy na pewno?</p>
+  </mat-dialog-content>
+  <mat-dialog-actions align="right">
+    <button (click)="cheangeStatus()" [mat-dialog-close]="this.dialogBoxAcept" mat-stroked-button color="accent" cdkFocusInitial>Tak</button>
+    <button mat-stroked-button color="warn" type="button" (click)="dialog.closeAll()"><mat-icon>cancel</mat-icon>Anuluj</button>
+  </mat-dialog-actions>

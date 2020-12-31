@@ -19,14 +19,10 @@ export class OwnerAddDialogComponent implements OnInit {
   }
   model: any = {};
 
-
   addOwner() {
     var variable = this.services.add(this.model.owner_first_name, this.model.owner_last_name, this.model.owner_adress, this.model.owner_city ,this.model.owner_email, this.model.owner_telephone);
-    console.error(variable);
-
+  
   }
-
-
 
   ngOnInit() {
   }

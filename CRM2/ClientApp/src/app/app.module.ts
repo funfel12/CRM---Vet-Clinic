@@ -46,15 +46,15 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatTreeModule } from '@angular/material/tree';
 import { OverlayModule } from '@angular/cdk/overlay';
-
 import { AgGridModule } from 'ag-grid-angular';
-
 import { AuthService } from './_services/_auth/auth.service';
 import { AlertifyService } from './_services/_alertify/alertify.service';
 import { HeadComponent } from './head/head.component';
 import { ButtonRenderComponent } from './_render/button-render/button-render.component';
 import { OwnerAddDialogComponent } from './_dialog/owner/add/owner-add-dialog/owner-add-dialog.component';
-
+import { OwnerDeleteDialogComponent } from './_dialog/owner/delete/owner-delete-dialog/owner-delete-dialog.component';
+import { OwnerEditDialogComponent } from './_dialog/owner/edit/owner-edit-dialog/owner-edit-dialog.component';
+import { AnimalComponent } from './animal/animal.component';
 
 
 
@@ -69,8 +69,11 @@ import { OwnerAddDialogComponent } from './_dialog/owner/add/owner-add-dialog/ow
     FetchDataComponent,
     LoginComponent,
     HeadComponent,
+    AnimalComponent,
     ButtonRenderComponent,
-    OwnerAddDialogComponent
+    OwnerAddDialogComponent,
+    OwnerDeleteDialogComponent,
+    OwnerEditDialogComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -81,7 +84,8 @@ import { OwnerAddDialogComponent } from './_dialog/owner/add/owner-add-dialog/ow
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'head', component: HeadComponent }
+      { path: 'head', component: HeadComponent },
+      { path: 'animal', component: AnimalComponent}
     ]),
     BrowserAnimationsModule,
     MatBadgeModule,
@@ -119,7 +123,6 @@ import { OwnerAddDialogComponent } from './_dialog/owner/add/owner-add-dialog/ow
     MatTooltipModule,
     MatTreeModule,
     OverlayModule,
-
     MatFormFieldModule,
     ReactiveFormsModule,
     AgGridModule.withComponents([ButtonRenderComponent]),
@@ -165,6 +168,6 @@ import { OwnerAddDialogComponent } from './_dialog/owner/add/owner-add-dialog/ow
   ],
   providers: [AuthService, AlertifyService],
   bootstrap: [AppComponent],
-  entryComponents: [OwnerAddDialogComponent]
+  entryComponents: [OwnerAddDialogComponent, OwnerDeleteDialogComponent,OwnerEditDialogComponent]
 })
 export class AppModule { }
