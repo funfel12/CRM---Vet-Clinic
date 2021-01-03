@@ -7,6 +7,7 @@ import { OwnerService } from '../_services/_owner/owner.service';
 import { AlertifyService } from '../_services/_alertify/alertify.service';
 import { Owner } from '../_model/Owner';
 import { OwnerEditDialogComponent } from '../_dialog/owner/edit/owner-edit-dialog/owner-edit-dialog.component';
+import { Router, Route } from '@angular/router';
 
 
 
@@ -29,7 +30,7 @@ export class HeadComponent implements OnInit {
 
 
 
-  constructor(public dialog: MatDialog, private service: OwnerService, private alertify: AlertifyService) {
+  constructor(public dialog: MatDialog, private service: OwnerService, private alertify: AlertifyService, private route: Router) {
     this.frameworkComponents = {
       buttonRenderer: ButtonRenderComponent,
     }
@@ -94,6 +95,7 @@ export class HeadComponent implements OnInit {
 
   onBtnClick3(e) {
     this.rowDataClicked3 = e.rowData;
+    this.route.navigate(['/animal/' + this.rowDataClicked3['Id']]); 
   }
 
 

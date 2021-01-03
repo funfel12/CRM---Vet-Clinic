@@ -85,7 +85,8 @@ import { AnimalComponent } from './animal/animal.component';
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'login', component: LoginComponent },
       { path: 'head', component: HeadComponent },
-      { path: 'animal', component: AnimalComponent}
+      { path: 'animal/:animal', component: AnimalComponent }
+      
     ]),
     BrowserAnimationsModule,
     MatBadgeModule,

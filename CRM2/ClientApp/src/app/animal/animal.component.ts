@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-animal',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AnimalComponent implements OnInit {
 
-  constructor() { }
+  animal: any;
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit() {
+
+    this.route.paramMap.subscribe(params => {
+      this.animal = params.get("animal")
+    })
+    console.log("Id zwierzęcia:" + this.animal);
   }
 
 }
