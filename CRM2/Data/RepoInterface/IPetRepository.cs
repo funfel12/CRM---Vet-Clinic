@@ -9,5 +9,6 @@ namespace CRM2.Data.RepoInterface.IGenericRepository
 {
     public interface IPetRepository: IGenericRepository<Pet>
     {
+        Task<IEnumerable<Pet>> GetPet(int id);
     }
 }

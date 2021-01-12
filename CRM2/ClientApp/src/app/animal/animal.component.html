@@ -12,92 +12,28 @@
 
 
     <div class="card-area">
-      <div class="cards">
-        <div class="multi-button">
-          <button class="fa fa-folder-open"></button>
-          <button class="fa fa fa-ban"></button>
-        </div>
-        <div class="container">
-          <img src="https://image.flaticon.com/icons/png/512/194/194626.png" alt="Avatar" style="width:100px; float: left; margin-top:10%;">
-          <b>ID: 31</b>
-          <br />
-          <b>TYP: Kot</b>
-          <br />
-          <b>IMIE: Fileon</b>
-          <br />
-          <b>RASA: -</b>
-          <br />
-        </div>
-      </div>
 
-      <div class="cards">
-        <div class="multi-button">
-          <button class="fa fa-folder-open"></button>
-          <button class="fa fa fa-ban"></button>
-        </div>
-        <div class="container">
-          <img src="https://image.flaticon.com/icons/png/512/194/194626.png" alt="Avatar" style="width:100px; float: left; margin-top:10%;">
-          <b>ID: 31</b>
-          <br />
-          <b>TYP: Kot</b>
-          <br />
-          <b>IMIE: Fileon</b>
-          <br />
-          <b>RASA: -</b>
-          <br />
-        </div>
-      </div>
 
-      <div class="cards">
+      <div *ngFor="let pet of getAnimal " class="cards">
         <div class="multi-button">
-          <button class="fa fa-folder-open"></button>
-          <button class="fa fa fa-ban"></button>
+          <button (click)="redirectToVisit(pet.id)" class="fa fa-folder-open"></button>
+          <button (click)="openDialogDelete(pet.id)" class="fa fa fa-ban"></button>
         </div>
         <div class="container">
           <img src="https://image.flaticon.com/icons/png/512/194/194626.png" alt="Avatar" style="width:100px; float: left; margin-top:10%;">
-          <b>ID: 31</b>
+          <b>ID: {{pet.id}}</b>
           <br />
-          <b>TYP: Kot</b>
+          <b>TYP: {{pet.pet_breed}}</b>
           <br />
-          <b>IMIE: Fileon</b>
+          <b>Kolor: {{pet.pet_color}}</b>
           <br />
-          <b>RASA: -</b>
+          <b>Data urodzenia: {{pet.pet_dob}}</b>
           <br />
-        </div>
-      </div>
-
-      <div class="cards">
-        <div class="multi-button">
-          <button class="fa fa-folder-open"></button>
-          <button class="fa fa fa-ban"></button>
-        </div>
-        <div class="container">
-          <img src="https://image.flaticon.com/icons/png/512/194/194626.png" alt="Avatar" style="width:100px; float: left; margin-top:10%;">
-          <b>ID: 31</b>
+          <b>Imie: {{pet.pet_name}}</b>
           <br />
-          <b>TYP: Kot</b>
+          <b>Płeć: {{pet.pet_sex}}</b>
           <br />
-          <b>IMIE: Fileon</b>
-          <br />
-          <b>RASA: -</b>
-          <br />
-        </div>
-      </div>
-      <div class="cards">
-        <div class="multi-button">
-          <button class="fa fa-folder-open"></button>
-          <button class="fa fa fa-ban"></button>
-        </div>
-        <div class="container">
-          <img src="https://image.flaticon.com/icons/png/512/194/194626.png" alt="Avatar" style="width:100px; float: left; margin-top:10%;">
-          <b>ID: 31</b>
-          <br />
-          <b>TYP: Kot</b>
-          <br />
-          <b>IMIE: Fileon</b>
-          <br />
-          <b>RASA: -</b>
-          <br />
+          <b>Gatunek: {{pet.pet_species}}</b>
         </div>
       </div>
     </div>

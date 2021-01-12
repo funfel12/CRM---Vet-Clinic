@@ -55,6 +55,14 @@ import { OwnerAddDialogComponent } from './_dialog/owner/add/owner-add-dialog/ow
 import { OwnerDeleteDialogComponent } from './_dialog/owner/delete/owner-delete-dialog/owner-delete-dialog.component';
 import { OwnerEditDialogComponent } from './_dialog/owner/edit/owner-edit-dialog/owner-edit-dialog.component';
 import { AnimalComponent } from './animal/animal.component';
+import { AnimalAddDialogComponent } from './_dialog/animal/add/animal-add-dialog/animal-add-dialog.component';
+import { AnimalDeleteDialogComponent } from './_dialog/animal/delete/animal-delete-dialog/animal-delete-dialog.component';
+import { AnimalService } from './_services/_animal/animal.service';
+import { VisitComponent } from './visit/visit.component';
+import { VisitAddDialogComponent } from './_dialog/visit/add/visit-add-dialog/visit-add-dialog.component';
+import { VisitDeleteDialogComponent } from './_dialog/visit/delete/visit-delete-dialog/visit-delete-dialog.component';
+import { VisitEditDialogComponent } from './_dialog/visit/edit/visit-edit-dialog/visit-edit-dialog.component';
+import { VisitService } from './_services/_visit/visit.service';
 
 
 
@@ -70,10 +78,16 @@ import { AnimalComponent } from './animal/animal.component';
     LoginComponent,
     HeadComponent,
     AnimalComponent,
+    VisitComponent,
     ButtonRenderComponent,
     OwnerAddDialogComponent,
     OwnerDeleteDialogComponent,
-    OwnerEditDialogComponent
+    OwnerEditDialogComponent,
+    AnimalAddDialogComponent,
+    AnimalDeleteDialogComponent,
+    VisitAddDialogComponent,
+    VisitDeleteDialogComponent,
+    VisitEditDialogComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -85,7 +99,8 @@ import { AnimalComponent } from './animal/animal.component';
       { path: 'fetch-data', component: FetchDataComponent },
       { path: 'login', component: LoginComponent },
       { path: 'head', component: HeadComponent },
-      { path: 'animal/:animal', component: AnimalComponent }
+      { path: 'animal/:animal', component: AnimalComponent },
+      { path: 'visit/:visit', component: VisitComponent }
       
     ]),
     BrowserAnimationsModule,
@@ -126,6 +141,7 @@ import { AnimalComponent } from './animal/animal.component';
     OverlayModule,
     MatFormFieldModule,
     ReactiveFormsModule,
+
     AgGridModule.withComponents([ButtonRenderComponent]),
 
   ],
@@ -167,8 +183,10 @@ import { AnimalComponent } from './animal/animal.component';
     MatFormFieldModule
 
   ],
-  providers: [AuthService, AlertifyService],
+  providers: [AuthService, AlertifyService, AnimalService, VisitService],
   bootstrap: [AppComponent],
-  entryComponents: [OwnerAddDialogComponent, OwnerDeleteDialogComponent,OwnerEditDialogComponent]
+  entryComponents: [OwnerAddDialogComponent, OwnerDeleteDialogComponent, OwnerEditDialogComponent,
+    AnimalAddDialogComponent, AnimalDeleteDialogComponent, VisitAddDialogComponent, VisitEditDialogComponent
+    , VisitDeleteDialogComponent]
 })
 export class AppModule { }

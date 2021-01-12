@@ -31,21 +31,33 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\_model\Animal.ts" />
     <None Remove="ClientApp\src\app\_model\Owner.ts" />
+    <None Remove="ClientApp\src\app\_model\Visit.ts" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="ClientApp\src\app\_dialog\animal\add\" />
+    <Folder Include="ClientApp\src\app\_dialog\animal\delete\" />
+    <Folder Include="ClientApp\src\app\_dialog\animal\edit\" />
     <Folder Include="ClientApp\src\app\_dialog\owner\add\" />
     <Folder Include="ClientApp\src\app\_dialog\owner\delete\" />
     <Folder Include="ClientApp\src\app\_dialog\owner\edit\" />
+    <Folder Include="ClientApp\src\app\_dialog\visit\add\" />
+    <Folder Include="ClientApp\src\app\_dialog\visit\delete\" />
+    <Folder Include="ClientApp\src\app\_dialog\visit\edit\" />
     <Folder Include="ClientApp\src\app\_render\_button_render\" />
+    <Folder Include="ClientApp\src\app\_services\_visit\" />
+    <Folder Include="ClientApp\src\app\_services\_animal\" />
     <Folder Include="ClientApp\src\app\_services\_owner\" />
     <Folder Include="ClientApp\src\app\_services\_alertify\" />
     <Folder Include="ClientApp\src\app\_services\_auth\" />
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\_model\Animal.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_model\Owner.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\_model\Visit.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

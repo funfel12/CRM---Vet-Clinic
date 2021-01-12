@@ -13,7 +13,7 @@ namespace CRM2.Models
         //[Key]
         //public int pet_id { get; set; }
         [MaxLength(200)]
-        public int pet_name { get; set; }
+        public String pet_name { get; set; }
         public DateTime pet_dob { get; set; }
         [MaxLength(200)]
         public String pet_species { get; set; }
@@ -23,9 +23,6 @@ namespace CRM2.Models
         public String pet_sex { get; set; }
         [MaxLength(100)]
         public String pet_color { get; set; }
-        [MaxLength(5000)]
-        public String pet_picture { get; set;}
-
         //Klucz właściciela
         [ForeignKey("Owner")]
         public int owner_id { get; set; }

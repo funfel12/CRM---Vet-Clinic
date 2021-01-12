@@ -1,0 +1,55 @@
+
+
+
+<h3 mat-dialog-title color="accent">
+  <button mat-icon-button color="warn" (click)="dialog.closeAll()">
+    <mat-icon>cancel</mat-icon>
+    Dodawanie
+  </button>
+</h3>
+
+<form #ownerAddForm="ngForm" (submit)="addAnimal()">
+  <div style="width: 50%; float:left">
+    <mat-form-field>
+      <input [(ngModel)]="model.pet_breed" name="pet_breed" type="text" matInput placeholder="Typ" required>
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <input [(ngModel)]="model.pet_color" name="pet_color" type="text" matInput placeholder="Kolor" required>
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <input  [matDatepicker]="picker" [(ngModel)]="model.pet_dob" name="pet_dob" matInput placeholder="Data urodzenia" required>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <br />
+
+
+  </div>
+
+  <div style="width: 50%; float:right">
+    <div mat-dialog-content>
+      <mat-form-field>
+        <input [(ngModel)]="model.pet_name" name="pet_name" type="text" matInput placeholder="Imie" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input [(ngModel)]="model.pet_species" name="owner_telephone" type="text" matInput placeholder="Gatunek" required>
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <input [(ngModel)]="model.pet_sex" name="pet_sex" type="text" matInput placeholder="Płeć" required>
+      </mat-form-field>
+      <br />
+
+    </div>
+    <div mat-dialog-actions>
+
+      <button [disabled]="!ownerAddForm.valid" type="submit" mat-stroked-button color="accent" cdkFocusInitial>Dodaj</button>
+      <button mat-stroked-button color="warn" type="button" (click)="dialog.closeAll()"><mat-icon>cancel</mat-icon>Nie dziękuje</button>
+
+
+
+    </div>
+  </div>
+</form>
