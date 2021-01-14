@@ -63,6 +63,11 @@ import { VisitAddDialogComponent } from './_dialog/visit/add/visit-add-dialog/vi
 import { VisitDeleteDialogComponent } from './_dialog/visit/delete/visit-delete-dialog/visit-delete-dialog.component';
 import { VisitEditDialogComponent } from './_dialog/visit/edit/visit-edit-dialog/visit-edit-dialog.component';
 import { VisitService } from './_services/_visit/visit.service';
+import { VetComponent } from './vet/vet.component';
+import { VetService } from './_services/_vet/vet.service';
+import { VetAddDialogComponent } from './_dialog/vet/add/vet-add-dialog/vet-add-dialog.component';
+import { VetDeleteDialogComponent } from './_dialog/vet/delete/vet-delete-dialog/vet-delete-dialog.component';
+import { VetEditDialogComponent } from './_dialog/vet/edit/vet-edit-dialog/vet-edit-dialog.component';
 
 
 
@@ -79,6 +84,7 @@ import { VisitService } from './_services/_visit/visit.service';
     HeadComponent,
     AnimalComponent,
     VisitComponent,
+    VetComponent,
     ButtonRenderComponent,
     OwnerAddDialogComponent,
     OwnerDeleteDialogComponent,
@@ -87,7 +93,10 @@ import { VisitService } from './_services/_visit/visit.service';
     AnimalDeleteDialogComponent,
     VisitAddDialogComponent,
     VisitDeleteDialogComponent,
-    VisitEditDialogComponent
+    VisitEditDialogComponent,
+    VetAddDialogComponent,
+    VetDeleteDialogComponent,
+    VetEditDialogComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -100,7 +109,8 @@ import { VisitService } from './_services/_visit/visit.service';
       { path: 'login', component: LoginComponent },
       { path: 'head', component: HeadComponent },
       { path: 'animal/:animal', component: AnimalComponent },
-      { path: 'visit/:visit', component: VisitComponent }
+      { path: 'visit/:visit', component: VisitComponent },
+      { path: 'vet', component: VetComponent }
       
     ]),
     BrowserAnimationsModule,
@@ -183,10 +193,10 @@ import { VisitService } from './_services/_visit/visit.service';
     MatFormFieldModule
 
   ],
-  providers: [AuthService, AlertifyService, AnimalService, VisitService],
+  providers: [AuthService, AlertifyService, AnimalService, VisitService, VetService],
   bootstrap: [AppComponent],
   entryComponents: [OwnerAddDialogComponent, OwnerDeleteDialogComponent, OwnerEditDialogComponent,
     AnimalAddDialogComponent, AnimalDeleteDialogComponent, VisitAddDialogComponent, VisitEditDialogComponent
-    , VisitDeleteDialogComponent]
+    , VisitDeleteDialogComponent, VetAddDialogComponent, VetDeleteDialogComponent, VetEditDialogComponent]
 })
 export class AppModule { }

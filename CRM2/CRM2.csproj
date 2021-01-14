@@ -43,10 +43,14 @@
     <Folder Include="ClientApp\src\app\_dialog\owner\add\" />
     <Folder Include="ClientApp\src\app\_dialog\owner\delete\" />
     <Folder Include="ClientApp\src\app\_dialog\owner\edit\" />
+    <Folder Include="ClientApp\src\app\_dialog\vet\add\" />
+    <Folder Include="ClientApp\src\app\_dialog\vet\delete\" />
+    <Folder Include="ClientApp\src\app\_dialog\vet\edit\" />
     <Folder Include="ClientApp\src\app\_dialog\visit\add\" />
     <Folder Include="ClientApp\src\app\_dialog\visit\delete\" />
     <Folder Include="ClientApp\src\app\_dialog\visit\edit\" />
     <Folder Include="ClientApp\src\app\_render\_button_render\" />
+    <Folder Include="ClientApp\src\app\_services\_vet\" />
     <Folder Include="ClientApp\src\app\_services\_visit\" />
     <Folder Include="ClientApp\src\app\_services\_animal\" />
     <Folder Include="ClientApp\src\app\_services\_owner\" />
