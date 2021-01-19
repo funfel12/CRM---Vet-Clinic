@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialogRef, MatDialog } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-vet-delete-dialog',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VetDeleteDialogComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(@Inject(MAT_DIALOG_DATA) public dialogBoxAcept: boolean, public dialog: MatDialog) { }
 
   ngOnInit() {
+    this.dialogBoxAcept = false;
   }
 
+  cheangeStatus() {
+    this.dialogBoxAcept = true;
+  }
 }

@@ -1,1 +1,60 @@
-<p>vet-add-dialog works!</p>
+
+
+
+<h3 mat-dialog-title color="accent">
+  <button mat-icon-button color="warn" (click)="dialog.closeAll()">
+    <mat-icon>cancel</mat-icon>
+    Dodawanie
+  </button>
+</h3>
+
+<form #vetAddForm="ngForm" (submit)="addOwner()">
+  <div style="width: 50%; float:left">
+    <mat-form-field>
+      <input [(ngModel)]="model.vet_name" name="vet_name" type="text" matInput placeholder="Imię" required>
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <input [(ngModel)]="model.vet_adress" name="vet_adress" type="text" matInput placeholder="Adres" required>
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <input [(ngModel)]="model.vet_city" name="vet_city" type="text" matInput placeholder="Miasto" required>
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <input [(ngModel)]="model.vet_med_rec_site" name="vet_med_rec_site" type="text" matInput placeholder="Strona www" required>
+    </mat-form-field>
+
+
+  </div>
+
+  <div style="width: 50%; float:right">
+    <div mat-dialog-content>
+      <mat-form-field>
+        <input [(ngModel)]="model.vet_state" name="vet_state" type="text" matInput placeholder="Województwo" required>
+      </mat-form-field>
+      <mat-form-field>
+        <input [(ngModel)]="model.vet_zip" name="vet_zip" type="text" matInput placeholder="Kod pocztowy" required>
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <input [(ngModel)]="model.vet_phone" name="vet_phone" type="text" matInput placeholder="Telefon" required>
+      </mat-form-field>
+      <br />
+      <mat-form-field>
+        <input [(ngModel)]="model.vet_email" name="vet_email" type="text" matInput placeholder="Email" required>
+      </mat-form-field>
+
+
+    </div>
+    <div mat-dialog-actions>
+
+      <button [disabled]="!vetAddForm.valid" type="submit" mat-stroked-button color="accent" cdkFocusInitial>Dodaj</button>
+      <button mat-stroked-button color="warn" type="button" (click)="dialog.closeAll()"><mat-icon>cancel</mat-icon>Nie dziękuje</button>
+
+
+
+    </div>
+  </div>
+</form>

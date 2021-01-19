@@ -13,5 +13,6 @@ namespace CRM2.Models.DictModels
         //public int dic_meds_id { get; set; }
         [MaxLength(500)]
         public String dic_meds_name { get; set; }
+        public decimal Price { get; set; }
     }
 }

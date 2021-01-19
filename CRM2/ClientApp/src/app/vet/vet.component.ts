@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { OwnerService } from '../_services/_owner/owner.service';
+import { VetService } from '../_services/_vet/vet.service';
 import { AlertifyService } from '../_services/_alertify/alertify.service';
 import { Router } from '@angular/router';
 import { ButtonRenderComponent } from '../_render/button-render/button-render.component';
@@ -25,7 +25,7 @@ export class VetComponent implements OnInit {
 
 
 
-  constructor(public dialog: MatDialog, private service: OwnerService, private alertify: AlertifyService, private route: Router) {
+  constructor(public dialog: MatDialog, private service: VetService, private alertify: AlertifyService, private route: Router) {
     this.frameworkComponents = {
       buttonRenderer: ButtonRenderComponent,
     }
@@ -56,15 +56,14 @@ export class VetComponent implements OnInit {
     },
     { headerName: 'Id', field: 'Id' },
     { headerName: 'Data utworzenia', field: 'CreatedDate' },
-    { headerName: 'Imie', field: 'owner_first_name' },
-    { headerName: 'Nazwisko', field: 'owner_last_name' },
-    { headerName: 'Adres', field: 'owner_adress' },
-    { headerName: 'Miasto', field: 'owner_city' },
-    { headerName: 'Telefon', field: 'owner_telephone' },
-    { headerName: 'Email', field: 'owner_email' }
-
-
-
+    { headerName: 'Imie i Nazwisko', field: 'vet_name' },
+    { headerName: 'Adres', field: 'vet_adress' },
+    { headerName: 'Miasto', field: 'vet_city' },
+    { headerName: 'Województwo', field: 'vet_state' },
+    { headerName: 'Kod pocztowy', field: 'vet_zip' },
+    { headerName: 'Telefon', field: 'vet_phone' },
+    { headerName: 'Telefon', field: 'vet_email' },
+    { headerName: 'Inne', field: 'vet_med_rec_site' }
   ];
 
 
@@ -104,7 +103,7 @@ export class VetComponent implements OnInit {
   openDialogAdd(): void {
     let dialogRef = this.dialog.open(VetAddDialogComponent, {
       width: '700px',
-      height: '40%',
+      height: '45%',
       panelClass: 'custom-dialog',
     });
     dialogRef.afterClosed().subscribe(result => {
@@ -117,7 +116,7 @@ export class VetComponent implements OnInit {
   openDialogEdit(clickVariableModel: any): void {
     let dialogRef = this.dialog.open(VetEditDialogComponent, {
       width: '700px',
-      height: '40%',
+      height: '45%',
       panelClass: 'custom-dialog',
       data: {
         anyProperty: clickVariableModel
@@ -127,7 +126,7 @@ export class VetComponent implements OnInit {
 
   refresh() {
     this.service.getAll().subscribe(next => {
-      this.alertify.sucess("Załadowano użytkowników");
+      this.alertify.sucess("Załadowano weterynarzy");
       this.rowData = [];
       for (let i = 0; i < next.length; i++) {
         console.log(next[i].CreatedDate);

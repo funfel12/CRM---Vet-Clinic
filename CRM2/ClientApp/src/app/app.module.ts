@@ -69,6 +69,10 @@ import { VetAddDialogComponent } from './_dialog/vet/add/vet-add-dialog/vet-add-
 import { VetDeleteDialogComponent } from './_dialog/vet/delete/vet-delete-dialog/vet-delete-dialog.component';
 import { VetEditDialogComponent } from './_dialog/vet/edit/vet-edit-dialog/vet-edit-dialog.component';
 
+import { DicmedComponent } from './dicmed/dicmed.component';
+import { DicserviceComponent } from './dicservice/dicservice.component';
+import { DicvacineComponent } from './dicvacine/dicvacine.component';
+
 
 
 
@@ -85,6 +89,9 @@ import { VetEditDialogComponent } from './_dialog/vet/edit/vet-edit-dialog/vet-e
     AnimalComponent,
     VisitComponent,
     VetComponent,
+    DicmedComponent,
+    DicserviceComponent,
+    DicvacineComponent,
     ButtonRenderComponent,
     OwnerAddDialogComponent,
     OwnerDeleteDialogComponent,
@@ -97,6 +104,7 @@ import { VetEditDialogComponent } from './_dialog/vet/edit/vet-edit-dialog/vet-e
     VetAddDialogComponent,
     VetDeleteDialogComponent,
     VetEditDialogComponent
+
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -110,8 +118,11 @@ import { VetEditDialogComponent } from './_dialog/vet/edit/vet-edit-dialog/vet-e
       { path: 'head', component: HeadComponent },
       { path: 'animal/:animal', component: AnimalComponent },
       { path: 'visit/:visit', component: VisitComponent },
-      { path: 'vet', component: VetComponent }
-      
+      { path: 'vet', component: VetComponent },
+      { path: 'dicvacine', component: DicvacineComponent },
+      { path: 'dicservice', component: DicserviceComponent },
+      { path: 'dicmed', component: DicmedComponent }
+    
     ]),
     BrowserAnimationsModule,
     MatBadgeModule,
@@ -151,7 +162,6 @@ import { VetEditDialogComponent } from './_dialog/vet/edit/vet-edit-dialog/vet-e
     OverlayModule,
     MatFormFieldModule,
     ReactiveFormsModule,
-
     AgGridModule.withComponents([ButtonRenderComponent]),
 
   ],

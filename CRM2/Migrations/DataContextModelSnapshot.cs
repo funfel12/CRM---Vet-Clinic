@@ -29,6 +29,9 @@ namespace CRM2.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<string>("dic_meds_name")
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
@@ -48,6 +51,9 @@ namespace CRM2.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
                     b.Property<string>("dic_services_name")
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
@@ -66,6 +72,9 @@ namespace CRM2.Migrations
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("dic_vaccines_name")
                         .HasMaxLength(500)
@@ -451,6 +460,9 @@ namespace CRM2.Migrations
                         .HasColumnType("nvarchar(500)");
 
                     b.Property<DateTime>("visit_date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("visit_date_end")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("visit_doctor")

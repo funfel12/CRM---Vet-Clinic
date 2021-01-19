@@ -13,6 +13,7 @@ namespace CRM2.Models
         //[Key]
        // public int visit_id { get; set; }
         public DateTime visit_date {get; set;}
+        public DateTime visit_date_end { get; set; }
         public float visit_weight { get; set; }
         [MaxLength(500)]
         public String visit_receipt {get; set;}
@@ -37,14 +38,6 @@ namespace CRM2.Models
         public ICollection<Vaccine> vaccines { get; set; }
         public ICollection<Service> services { get; set; }
         public ICollection<Test> tests { get; set; }
-
-
-
-
-
-
-
-
 
 
     }
