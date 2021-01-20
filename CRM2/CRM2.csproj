@@ -32,6 +32,9 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\app\_model\Animal.ts" />
+    <None Remove="ClientApp\src\app\_model\Dicmed.ts" />
+    <None Remove="ClientApp\src\app\_model\Dicservice.ts" />
+    <None Remove="ClientApp\src\app\_model\Dicvaccine.ts" />
     <None Remove="ClientApp\src\app\_model\Owner.ts" />
     <None Remove="ClientApp\src\app\_model\Vet.ts" />
     <None Remove="ClientApp\src\app\_model\Visit.ts" />
@@ -73,6 +76,9 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\src\app\_model\Animal.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\_model\Dicmed.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\_model\Dicservice.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\_model\Dicvaccine.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_model\Owner.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_model\Vet.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_model\Visit.ts" />
