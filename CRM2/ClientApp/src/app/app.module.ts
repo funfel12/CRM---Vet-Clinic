@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, LOCALE_ID} from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
@@ -7,6 +7,7 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
+import { VisitsComponent } from './visits/visits.component'
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { LoginComponent } from './login/login.component';
@@ -68,11 +69,27 @@ import { VetService } from './_services/_vet/vet.service';
 import { VetAddDialogComponent } from './_dialog/vet/add/vet-add-dialog/vet-add-dialog.component';
 import { VetDeleteDialogComponent } from './_dialog/vet/delete/vet-delete-dialog/vet-delete-dialog.component';
 import { VetEditDialogComponent } from './_dialog/vet/edit/vet-edit-dialog/vet-edit-dialog.component';
-
 import { DicmedComponent } from './dicmed/dicmed.component';
 import { DicserviceComponent } from './dicservice/dicservice.component';
 import { DicvacineComponent } from './dicvacine/dicvacine.component';
-
+import { DicserviceService } from './_services/_dicservice/dicservice.service';
+import { DicmedService } from './_services/_dicmed/dicmed.service';
+import { DicmedAddDialogComponent } from './_dialog/dicMed/add/dicmed-add-dialog/dicmed-add-dialog.component';
+import { DicmedEditDialogComponent } from './_dialog/dicMed/edit/dicmed-edit-dialog/dicmed-edit-dialog.component';
+import { DicmedDeleteDialogComponent } from './_dialog/dicMed/delete/dicmed-delete-dialog/dicmed-delete-dialog.component';
+import { DicserviceAddComponent } from './_dialog/dicService/add/dicservice-add/dicservice-add.component';
+import { DicserviceEditComponent } from './_dialog/dicService/edit/dicservice-edit/dicservice-edit.component';
+import { DicserviceDeleteComponent } from './_dialog/dicService/delete/dicservice-delete/dicservice-delete.component';
+import { DicvaccineAddDialogComponent } from './_dialog/dicVaccine/add/dicvaccine-add-dialog/dicvaccine-add-dialog.component';
+import { DicvaccineEditDialogComponent } from './_dialog/dicVaccine/edit/dicvaccine-edit-dialog/dicvaccine-edit-dialog.component';
+import { DicvaccineDeleteDialogComponent } from './_dialog/dicVaccine/delete/dicvaccine-delete-dialog/dicvaccine-delete-dialog.component';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { MAT_DATE_LOCALE } from '@angular/material';
+import { NgxMatTimepickerModule, NgxMatNativeDateModule } from "@angular-material-components/datetime-picker";
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
+import { NgxMatDatetimePickerModule } from '@angular-material-components/datetime-picker';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -90,6 +107,7 @@ import { DicvacineComponent } from './dicvacine/dicvacine.component';
     VisitComponent,
     VetComponent,
     DicmedComponent,
+    VisitsComponent,
     DicserviceComponent,
     DicvacineComponent,
     ButtonRenderComponent,
@@ -103,11 +121,31 @@ import { DicvacineComponent } from './dicvacine/dicvacine.component';
     VisitEditDialogComponent,
     VetAddDialogComponent,
     VetDeleteDialogComponent,
-    VetEditDialogComponent
+    VetEditDialogComponent,
+    DicmedEditDialogComponent,
+    DicmedAddDialogComponent,
+    DicmedDeleteDialogComponent,
+    DicserviceAddComponent,
+    DicserviceEditComponent,
+    DicserviceDeleteComponent,
+    DicvaccineAddDialogComponent,
+    DicvaccineEditDialogComponent,
+    DicvaccineDeleteDialogComponent,
+
+   
+
+
+   
+
 
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
+    BrowserAnimationsModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
@@ -121,8 +159,8 @@ import { DicvacineComponent } from './dicvacine/dicvacine.component';
       { path: 'vet', component: VetComponent },
       { path: 'dicvacine', component: DicvacineComponent },
       { path: 'dicservice', component: DicserviceComponent },
-      { path: 'dicmed', component: DicmedComponent }
-    
+      { path: 'dicmed', component: DicmedComponent },
+      { path: 'visits', component: VisitsComponent}
     ]),
     BrowserAnimationsModule,
     MatBadgeModule,
@@ -163,6 +201,12 @@ import { DicvacineComponent } from './dicvacine/dicvacine.component';
     MatFormFieldModule,
     ReactiveFormsModule,
     AgGridModule.withComponents([ButtonRenderComponent]),
+    NgxMatTimepickerModule,
+    NgxMatNativeDateModule,
+    NgxMaterialTimepickerModule,
+    NgxMatDatetimePickerModule,
+    
+
 
   ],
   exports: [MatBadgeModule,
@@ -203,10 +247,15 @@ import { DicvacineComponent } from './dicvacine/dicvacine.component';
     MatFormFieldModule
 
   ],
-  providers: [AuthService, AlertifyService, AnimalService, VisitService, VetService],
+  providers: [AuthService, AlertifyService, AnimalService, VisitService, VetService, DicserviceService, DicmedService,
+    DatePipe],
   bootstrap: [AppComponent],
-  entryComponents: [OwnerAddDialogComponent, OwnerDeleteDialogComponent, OwnerEditDialogComponent,
-    AnimalAddDialogComponent, AnimalDeleteDialogComponent, VisitAddDialogComponent, VisitEditDialogComponent
-    , VisitDeleteDialogComponent, VetAddDialogComponent, VetDeleteDialogComponent, VetEditDialogComponent]
+  entryComponents: [OwnerAddDialogComponent, DicmedAddDialogComponent, OwnerDeleteDialogComponent, OwnerEditDialogComponent, AnimalAddDialogComponent, AnimalDeleteDialogComponent, VisitAddDialogComponent, VisitEditDialogComponent, VisitDeleteDialogComponent, VetAddDialogComponent, VetDeleteDialogComponent, VetEditDialogComponent, DicmedEditDialogComponent, DicmedDeleteDialogComponent, DicserviceAddComponent,
+    DicserviceEditComponent,
+    DicserviceDeleteComponent,
+    DicvaccineAddDialogComponent,
+    DicvaccineEditDialogComponent,
+    DicvaccineDeleteDialogComponent,
+    ]
 })
 export class AppModule { }

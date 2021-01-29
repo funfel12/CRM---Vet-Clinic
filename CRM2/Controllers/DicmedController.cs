@@ -10,6 +10,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CRM2.Controllers
 {
+    
+    [Route("api/[controller]")]
+    [ApiController]
     public class DicmedController : Controller
     {
         private readonly IDicMedRepository _repository;

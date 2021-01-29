@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DicmedAddDialogComponent } from './dicmed-add-dialog.component';
+import { DicserviceDeleteComponent } from './dicservice-delete.component';
 
-describe('DicmedAddDialogComponent', () => {
-  let component: DicmedAddDialogComponent;
-  let fixture: ComponentFixture<DicmedAddDialogComponent>;
+describe('DicserviceDeleteComponent', () => {
+  let component: DicserviceDeleteComponent;
+  let fixture: ComponentFixture<DicserviceDeleteComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DicmedAddDialogComponent ]
+      declarations: [ DicserviceDeleteComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DicmedAddDialogComponent);
+    fixture = TestBed.createComponent(DicserviceDeleteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

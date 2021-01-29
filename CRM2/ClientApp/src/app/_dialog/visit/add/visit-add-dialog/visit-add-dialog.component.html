@@ -1,1 +1,47 @@
-<p>visit-add-dialog works!</p>
+
+
+
+<h3 mat-dialog-title color="accent">
+  <button mat-icon-button color="warn" (click)="dialog.closeAll()">
+    <mat-icon>cancel</mat-icon>
+    Dodawanie
+  </button>
+</h3>
+
+<form #visitAddForm="ngForm" (submit)="addVisit()">
+
+
+
+  <div style="width: 50%; float:left">
+    <mat-form-field>
+      <input matInput [ngxMatDatetimePicker]="picker" placeholder="Data spotkania" [(ngModel)]="model.visit_date" name="visit_date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <ngx-mat-datetime-picker #picker></ngx-mat-datetime-picker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input [(ngModel)]="model.visit_category" name="visit_category" type="text" matInput placeholder="Kategoria wizyty" required>
+    </mat-form-field>
+
+
+
+  </div>
+  <div style="width: 50%; float:right">
+    <div mat-dialog-content>
+      <mat-form-field>
+        <mat-select [(ngModel)]="model.visit_doctor" name="visit_doctor">
+          <mat-option *ngFor="let vet of veterinary" [value]="vet.Id" >
+            Lek. Vet. {{vet.vet_name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+    <div mat-dialog-actions>
+
+      <button [disabled]="!visitAddForm.valid" type="submit" mat-stroked-button color="accent" cdkFocusInitial>Dodaj</button>
+      <button mat-stroked-button color="warn" type="button" (click)="dialog.closeAll()"><mat-icon>cancel</mat-icon>Nie dziękuje</button>
+
+    </div>
+  </div>
+</form>

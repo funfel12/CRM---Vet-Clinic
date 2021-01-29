@@ -4,6 +4,7 @@
 
 @import '../node_modules/alertifyjs/build/css/alertify.min.css';
 @import '../node_modules/alertifyjs/build/css/themes/bootstrap.min.css';
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
 
 
 a {
@@ -25,4 +26,49 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .custom-dialog > mat-dialog-container {
   background-color: hsla(0, 0%, 0%, 1)
+}
+
+
+.timepicker-overlay{
+
+}
+
+.timepicker-overlay {
+  z-index: 100000000 !important;
+}
+
+.timepicker-backdrop-overlay {
+  z-index: 100000000 !important;
+}
+
+
+::ng-deep .mat-select-panel.example-long-panel {
+  max-height: 500px;
+}
+
+.input{
+   background:black !important;
+   color: white !important;
+}
+
+.mat-dialog-content {
+  margin: 0 !important;
+  padding: 0 !important;
+  max-height: 45px !important;
+  overflow: hidden !important;
+}
+
+.timepicker__body{
+  background-color: black !important;
+}
+
+.timepicker__actions{
+    background-color:black !important;
+}
+  .timepicker__actions[_ngcontent-ng-cli-universal-c10] {
+    /* background-color: var(--body-background-color); */
+  }
+
+::ng-deep .mat-form-field-infix {
+  color: white !important;
 }

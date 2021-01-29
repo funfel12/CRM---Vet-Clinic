@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
 })
 export class DicserviceService {
 
-  baseUrl = "http://localhost:49913/api/dicmed/";
+  baseUrl = "http://localhost:49913/api/dicservice/";
 
   constructor(private http: HttpClient, private alertify: AlertifyService) {
   }
@@ -19,14 +19,11 @@ export class DicserviceService {
     const url = `${this.baseUrl}get`;
     return this.http.post(url, {})
       .pipe(map((data: any[]) =>
-        data.map((item: any) => new Dicservice(item.id, item.dic_meds_name, item.Price)
+        data.map((item: any) => new Dicservice(item.id, item.createdDate ,item.dic_services_name, item.price)
         )
       )
       );
-
-
   }
-
   add(dic_services_name: string, Price: number) {
 
     const url = `${this.baseUrl}add`;
@@ -60,7 +57,7 @@ export class DicserviceService {
   delete(id: number) {
     this.http.delete(`${this.baseUrl}delete/${id}`)
       .subscribe(next => {
-        this.alertify.error("Usunięto usługe!");
+        this.alertify.error("Usunięto medykament!");
       }, error => {
         this.alertify.error("Wystąpił błąd usuwania medykamentu!");
       });

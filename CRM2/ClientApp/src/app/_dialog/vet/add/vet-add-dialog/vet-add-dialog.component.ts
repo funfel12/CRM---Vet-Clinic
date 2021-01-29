@@ -19,7 +19,7 @@ export class VetAddDialogComponent implements OnInit {
   }
   model: any = {};
 
-  addOwner() {
+  addVet() {
     var variable = this.services.add(this.model.vet_name, this.model.vet_adress, this.model.vet_city, this.model.vet_state, this.model.vet_zip, this.model.vet_phone, this.model.vet_email, this.model.vet_med_rec_site);
 
   }
@@ -32,3 +32,4 @@ export class VetAddDialogComponent implements OnInit {
   }
 
 }
+

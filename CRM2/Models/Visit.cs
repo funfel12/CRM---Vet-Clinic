@@ -13,21 +13,13 @@ namespace CRM2.Models
         //[Key]
        // public int visit_id { get; set; }
         public DateTime visit_date {get; set;}
-        public DateTime visit_date_end { get; set; }
         public float visit_weight { get; set; }
-        [MaxLength(500)]
-        public String visit_receipt {get; set;}
         [MaxLength(2000)]
         public String visit_notes {get; set;}
         [MaxLength(2000)]
         public String med_visit_summary {get; set;}
         [MaxLength(500)]
-        public String routine_visit_summary { get; set; }
-        [MaxLength(500)]
         public String visit_category { get; set; }
-        [MaxLength(500)]
-        public String visit_doctor { get; set; }
-        public String visit_exam_doc { get; set; }
         [ForeignKey("Pet")]
         public int pet_id { get; set; }
         public Pet Pet { get; set;}

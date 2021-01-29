@@ -9,8 +9,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CRM2.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class DicServiceController : Controller
     {
+
         private readonly IDicServiceRepository _repository;
         public DicServiceController(IDicServiceRepository repository)
         {

@@ -19,13 +19,11 @@
     </mat-form-field>
     <br />
     <mat-form-field>
-      <input  [matDatepicker]="picker" [(ngModel)]="model.pet_dob" name="pet_dob" matInput placeholder="Data urodzenia" required>
+      <input  [matDatepicker]="picker" [(ngModel)]="model.pet_dob" name="pet_dob"  matInput placeholder="Data urodzenia" required>
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
     <br />
-
-
   </div>
 
   <div style="width: 50%; float:right">

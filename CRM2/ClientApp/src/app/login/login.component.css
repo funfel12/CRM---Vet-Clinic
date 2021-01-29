@@ -22,7 +22,7 @@ mat-card-title {
 }
 
 body {
-  background-image: url('https://img1.goodfon.com/original/1920x1080/d/f8/voronoy-kon-loshad-vetki.jpg');
+  background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/dfbdc430671987.570216e669d64.png');
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: 100% 100%;
@@ -59,7 +59,7 @@ button, input, .mat-form-field {
 
 img {
   border-radius: 100%;
-  width: 150px;
+  width: 100px;
   margin-left: 100px;
   margin-right: 100px;
 }

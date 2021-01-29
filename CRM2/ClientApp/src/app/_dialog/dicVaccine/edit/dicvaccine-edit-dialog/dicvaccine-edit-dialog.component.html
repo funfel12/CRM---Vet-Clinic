@@ -1,1 +1,27 @@
-<p>dicvaccine-edit-dialog works!</p>
+
+<h3 mat-dialog-title color="accent">
+  <button mat-icon-button color="warn" (click)="dialog.closeAll()">
+    <mat-icon>cancel</mat-icon>
+    Edytowanie
+  </button>
+</h3>
+
+<form #VacineeeditForm="ngForm" (submit)="editVaccine()">
+  <div style="width: 50%; float:left">
+    <mat-form-field>
+      <input [(ngModel)]="dataFromMotherComponent.anyProperty.dic_vaccines_name" name="dic_vaccines_name" type="text" matInput placeholder="Nazwa szczepionki" required>
+    </mat-form-field>
+  </div>
+
+  <div style="width: 50%; float:right">
+    <div mat-dialog-content>
+      <mat-form-field>
+        <input (keypress)="numberOnly($event)" [(ngModel)]="dataFromMotherComponent.anyProperty.Price" name="Price" type="text" matInput placeholder="Cena usługi" required>
+      </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+      <button [disabled]="!VacineeeditForm.valid" type="submit" mat-stroked-button color="accent" cdkFocusInitial>Akceptuje</button>
+      <button mat-stroked-button color="warn" type="button" (click)="dialog.closeAll()"><mat-icon>cancel</mat-icon>Nie dziękuje</button>
+    </div>
+  </div>
+</form>

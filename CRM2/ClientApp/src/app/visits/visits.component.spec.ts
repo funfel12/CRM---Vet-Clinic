@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DicmedEditDialogComponent } from './dicmed-edit-dialog.component';
+import { VisitsComponent } from './visits.component';
 
-describe('DicmedEditDialogComponent', () => {
-  let component: DicmedEditDialogComponent;
-  let fixture: ComponentFixture<DicmedEditDialogComponent>;
+describe('VisitsComponent', () => {
+  let component: VisitsComponent;
+  let fixture: ComponentFixture<VisitsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DicmedEditDialogComponent ]
+      declarations: [ VisitsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DicmedEditDialogComponent);
+    fixture = TestBed.createComponent(VisitsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

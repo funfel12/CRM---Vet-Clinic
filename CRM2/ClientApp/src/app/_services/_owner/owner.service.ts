@@ -16,11 +16,9 @@ export class OwnerService {
   //delete
   constructor(private http: HttpClient, private alertify: AlertifyService) {
 
- 
   }
   getAll(): Observable<Owner[]>
   {
- 
     const url = `${this.baseUrl}get`;
     return this.http.post(url, {})
       .pipe(map((data: any[]) =>
@@ -28,10 +26,7 @@ export class OwnerService {
           )
         )
     );
-
-
   }
-
   add(owner_first_name: string, owner_last_name: string,
     owner_adress: string, owner_city: string ,owner_email: string, owner_telephone: string) {
 
@@ -50,7 +45,6 @@ export class OwnerService {
     });
 
   }
-
 
   update(Id: number,owner_first_name: string, owner_last_name: string,
     owner_adress: string, owner_city: string, owner_email: string, owner_telephone: string) {

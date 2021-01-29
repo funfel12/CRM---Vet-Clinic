@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace CRM2.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class DicvaccineController : Controller
     {
 

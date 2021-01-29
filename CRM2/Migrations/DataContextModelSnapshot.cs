@@ -448,10 +448,6 @@ namespace CRM2.Migrations
                     b.Property<int>("pet_id")
                         .HasColumnType("int");
 
-                    b.Property<string>("routine_visit_summary")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
                     b.Property<int>("vet_id")
                         .HasColumnType("int");
 
@@ -462,23 +458,9 @@ namespace CRM2.Migrations
                     b.Property<DateTime>("visit_date")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("visit_date_end")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("visit_doctor")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
-
-                    b.Property<string>("visit_exam_doc")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("visit_notes")
                         .HasMaxLength(2000)
                         .HasColumnType("nvarchar(2000)");
-
-                    b.Property<string>("visit_receipt")
-                        .HasMaxLength(500)
-                        .HasColumnType("nvarchar(500)");
 
                     b.Property<float>("visit_weight")
                         .HasColumnType("real");

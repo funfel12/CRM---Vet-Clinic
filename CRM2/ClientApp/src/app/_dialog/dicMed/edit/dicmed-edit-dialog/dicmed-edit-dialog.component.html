@@ -1,1 +1,29 @@
-<p>dicmed-edit-dialog works!</p>
+
+
+
+<h3 mat-dialog-title color="accent">
+  <button mat-icon-button color="warn" (click)="dialog.closeAll()">
+    <mat-icon>cancel</mat-icon>
+    Edytowanie
+  </button>
+</h3>
+
+<form #MededitForm="ngForm" (submit)="editMed()">
+  <div style="width: 50%; float:left">
+    <mat-form-field>
+      <input [(ngModel)]="dataFromMotherComponent.anyProperty.dic_meds_name" name="dic_meds_name" type="text" matInput placeholder="Nazwa produktu" required>
+    </mat-form-field>
+  </div>
+
+  <div style="width: 50%; float:right">
+    <div mat-dialog-content>
+      <mat-form-field>
+        <input (keypress)="numberOnly($event)" [(ngModel)]="dataFromMotherComponent.anyProperty.Price" name="Price" type="text" matInput placeholder="Cena produktu" required>
+      </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+      <button [disabled]="!MededitForm.valid" type="submit" mat-stroked-button color="accent" cdkFocusInitial>Akceptuje</button>
+      <button mat-stroked-button color="warn" type="button" (click)="dialog.closeAll()"><mat-icon>cancel</mat-icon>Nie dziękuje</button>
+    </div>
+  </div>
+</form>

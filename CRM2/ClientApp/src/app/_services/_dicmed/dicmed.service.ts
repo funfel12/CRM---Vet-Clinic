@@ -12,7 +12,7 @@ import { map } from 'rxjs/operators';
 })
 export class DicmedService {
 
-  baseUrl = "http://localhost:49913/api/dicmed/";
+  baseUrl = "http://localhost:49913/api/Dicmed/";
 
   constructor(private http: HttpClient, private alertify: AlertifyService) {
 
@@ -23,7 +23,7 @@ export class DicmedService {
     const url = `${this.baseUrl}get`;
     return this.http.post(url, {})
       .pipe(map((data: any[]) =>
-        data.map((item: any) => new Dicmed(item.id, item.dic_meds_name, item.Price)
+        data.map((item: any) => new Dicmed(item.id, item.createdDate, item.dic_meds_name, item.price)
         )
       )
       );
