@@ -9,5 +9,6 @@ namespace CRM2.Data.RepoInterface.IGenericRepository
 {
     public interface IServiceRepository : IGenericRepository<Service>
     {
+        Task<IEnumerable<Service>> GetService(int id);
     }
 }

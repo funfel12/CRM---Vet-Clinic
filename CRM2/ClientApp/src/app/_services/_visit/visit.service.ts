@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { AlertifyService } from '../_alertify/alertify.service';
+import { Visit } from '../../_model/Visit';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -17,13 +19,47 @@ import { AlertifyService } from '../_alertify/alertify.service';
 
   }
 
-
   get(idPet: number) {
     const url = `${this.baseUrl}get`;
     return this.http.post(url, {
       id: idPet
-    });
+    }).pipe(map((data: any[]) =>
+      data.map((item: any) => new Visit(item.id, item.createdDate, item.visit_date, item.visit_notes, item.med_visit_summary, item.visit_category, item.pet_id, item.vet_id)
+      )
+    )
+    );
   }
+
+
+
+  getByid(idVisit: number) {
+    const url = `${this.baseUrl}getbyid`;
+    return this.http.post(url, {
+      id: idVisit
+    }
+    );
+  }
+
+  update(Id: number, med_visit_summary: string, visit_category: string, visit_notes: string, visit_weight: string, visit_date: string, vet_id: number)
+  {
+    const url = `${this.baseUrl}update`;
+    return this.http.post(url, {
+      Id:Id,
+      med_visit_summary: med_visit_summary,
+      visit_category: visit_category,
+      visit_notes: visit_notes,
+      visit_weight: visit_weight,
+      visit_date: visit_date,
+      vet_id: vet_id
+
+    }).subscribe(next => {
+      this.alertify.sucess("Zedytowano wizyte!");
+    }, error => {
+      this.alertify.error("Błąd edycjii wizyty!");
+    });
+
+  }
+
 
   add(visit_date: string, visit_notes: string, med_visit_summary: string, visit_category: string, pet_id: number, vet_id: number)
   {

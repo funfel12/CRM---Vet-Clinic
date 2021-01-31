@@ -44,6 +44,7 @@ namespace CRM2
             services.AddScoped<IGenericRepository<Test>, TestRepository>();
             services.AddScoped<IGenericRepository<Vaccine>, VaccineRepository>();
             services.AddScoped<IGenericRepository<Vet>, VetRepository>();
+            services.AddScoped<IGenericRepository<Visit>, VisitRepository>();
             services.AddScoped<IGenericRepository<DicMed>, DicMedRepository>();
             services.AddScoped<IGenericRepository<DicService>, DicServiceRepository>();
             services.AddScoped<IGenericRepository<DicVaccine>, DicVaccineRepository>();
@@ -55,6 +56,7 @@ namespace CRM2
             services.AddScoped<ITestRepository, TestRepository>();
             services.AddScoped<IVaccineRepository, VaccineRepository>();
             services.AddScoped<IVetRepository, VetRepository>();
+            services.AddScoped<IVisitRepository, VisitRepository>();
             services.AddScoped<IDicMedRepository, DicMedRepository>();
             services.AddScoped<IDicServiceRepository, DicServiceRepository>();
             services.AddScoped<IDicVaccineRepository, DicVaccineRepository>();

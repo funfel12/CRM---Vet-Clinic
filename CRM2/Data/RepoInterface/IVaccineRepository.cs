@@ -9,5 +9,6 @@ namespace CRM2.Data.RepoInterface.IGenericRepository
 {
     public interface IVaccineRepository : IGenericRepository<Vaccine>
     {
+        Task<IEnumerable<Vaccine>> GetVaccine(int id);
     }
 }

@@ -14,10 +14,6 @@ namespace CRM2.Models
         //public int serv_id { get; set; }
         [MaxLength(500)]
         public String serv_name { get; set; }
-        [MaxLength(500)]
-        public String serv_descrption { get; set; }
-        public DateTime serv_start_date { get; set; }
-        public DateTime serv_end_date { get; set; }
         [MaxLength(1500)]
         public String serv_description { get; set; }
         [MaxLength(5000)]

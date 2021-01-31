@@ -41,7 +41,7 @@ namespace CRM2.Controllers
         }
 
 
-        [HttpPost("get")]
+        [HttpPost("getAll")]
         public async Task<IActionResult> GetAllOwner()
         {
             var data = await _repository.GetAll();
@@ -51,6 +51,13 @@ namespace CRM2.Controllers
 
         [HttpPost("get")]
         public async Task<IActionResult> GetVisitByAnimalId(VisitGetDTO PetId)
+        {
+            var data = await _repository.GetVisit(PetId.id);
+            return Ok(data);
+        }
+
+        [HttpPost("getbyid")]
+        public async Task<IActionResult> GetVisitById(VisitGetDTO PetId)
         {
             var data = await _repository.GetById(PetId.id);
             return Ok(data);
@@ -66,19 +73,15 @@ namespace CRM2.Controllers
        [HttpPost("update")]
         public async Task<IActionResult> UpdateOwner(VisitEditDTO editDT0)
         {
-            Visit visit = new Visit
-            {
-                Id = editDT0.Id,
-                CreatedDate = DateTime.UtcNow,
-                visit_date = editDT0.visit_date,
-                visit_notes = editDT0.visit_notes,
-                med_visit_summary = editDT0.med_visit_summary,
-                visit_category = editDT0.visit_category,
-                pet_id = editDT0.pet_id,
-                vet_id = editDT0.vet_id
+            Visit visit = await _repository.GetById(editDT0.Id);
 
-            };
-            _repository.Update(owner);
+            visit.CreatedDate = DateTime.UtcNow;
+            visit.visit_date = editDT0.visit_date;
+            visit.visit_notes = editDT0.visit_notes;
+            visit.med_visit_summary = editDT0.med_visit_summary;
+            visit.visit_category = editDT0.visit_category;
+            visit.vet_id = editDT0.vet_id;
+            _repository.Update(visit);
 
             return Ok();
         }

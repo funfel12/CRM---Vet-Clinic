@@ -27,8 +27,6 @@ export class DicmedService {
         )
       )
       );
-
-
   }
 
   add(dic_meds_name: string, Price: number) {

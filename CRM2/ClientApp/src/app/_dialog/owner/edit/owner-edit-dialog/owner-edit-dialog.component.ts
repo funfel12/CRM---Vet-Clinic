@@ -31,7 +31,7 @@ export class OwnerEditDialogComponent implements OnInit {
 
 
   editOwner() {
-    var variable = this.services.update(this.dataFromMotherComponent.anyProperty.Id,this.dataFromMotherComponent.anyProperty.owner_first_name, this.dataFromMotherComponent.anyProperty.owner_last_name, this.dataFromMotherComponent.anyProperty.owner_adress, this.dataFromMotherComponent.anyProperty.owner_city, this.dataFromMotherComponent.anyProperty.owner_email, this.dataFromMotherComponent.anyProperty.owner_telephone);
+    this.services.update(this.dataFromMotherComponent.anyProperty.Id,this.dataFromMotherComponent.anyProperty.owner_first_name, this.dataFromMotherComponent.anyProperty.owner_last_name, this.dataFromMotherComponent.anyProperty.owner_adress, this.dataFromMotherComponent.anyProperty.owner_city, this.dataFromMotherComponent.anyProperty.owner_email, this.dataFromMotherComponent.anyProperty.owner_telephone);
 
   }
 

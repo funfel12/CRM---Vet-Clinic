@@ -1,8 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Vet = void 0;
-var Vet = /** @class */ (function () {
-    function Vet(Id, CreatedDate, visit_date, visit_notes, med_visit_summary, visit_category, pet_id, vet_id) {
+exports.Visit = void 0;
+var Visit = /** @class */ (function () {
+    function Visit(Id, CreatedDate, visit_date, visit_notes, med_visit_summary, visit_category, pet_id, vet_id) {
         this.Id = Id;
         this.CreatedDate = CreatedDate;
         this.visit_date = visit_date;
@@ -12,7 +12,7 @@ var Vet = /** @class */ (function () {
         this.pet_id = pet_id;
         this.vet_id = vet_id;
     }
-    return Vet;
+    return Visit;
 }());
-exports.Vet = Vet;
+exports.Visit = Visit;
 //# sourceMappingURL=Visit.js.map

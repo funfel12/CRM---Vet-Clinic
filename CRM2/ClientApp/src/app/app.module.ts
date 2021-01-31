@@ -90,6 +90,7 @@ import { NgxMatTimepickerModule, NgxMatNativeDateModule } from "@angular-materia
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { NgxMatDatetimePickerModule } from '@angular-material-components/datetime-picker';
 import { DatePipe } from '@angular/common';
+import { VisitEditComponent } from './visit-edit/visit-edit.component';
 
 
 
@@ -131,6 +132,7 @@ import { DatePipe } from '@angular/common';
     DicvaccineAddDialogComponent,
     DicvaccineEditDialogComponent,
     DicvaccineDeleteDialogComponent,
+    VisitEditComponent
 
    
 
@@ -160,7 +162,8 @@ import { DatePipe } from '@angular/common';
       { path: 'dicvacine', component: DicvacineComponent },
       { path: 'dicservice', component: DicserviceComponent },
       { path: 'dicmed', component: DicmedComponent },
-      { path: 'visits', component: VisitsComponent}
+      { path: 'visits', component: VisitsComponent },
+      { path: 'visitedit/:visit', component: VisitEditComponent}
     ]),
     BrowserAnimationsModule,
     MatBadgeModule,
@@ -205,6 +208,7 @@ import { DatePipe } from '@angular/common';
     NgxMatNativeDateModule,
     NgxMaterialTimepickerModule,
     NgxMatDatetimePickerModule,
+
     
 
 

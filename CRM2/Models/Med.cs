@@ -22,11 +22,6 @@ namespace CRM2.Models
         public DateTime med_end_date { get; set; }
         [MaxLength(500)]
         public String med_category { get; set; }
-        [MaxLength(100)]
-        public String med_current_flag { get; set; }
-        [MaxLength(5000)]
-        public String med_prescription { get; set; }
-
         [ForeignKey("Visit")]
         public int visit_id { get; set; }
         public Visit Visit { get; set; }

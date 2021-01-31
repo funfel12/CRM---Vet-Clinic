@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { VetService } from '../../../../_services/_vet/vet.service';
 import { AlertifyService } from '../../../../_services/_alertify/alertify.service';
-import { MatDialog } from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { DatePipe } from '@angular/common';
 import { VisitService } from '../../../../_services/_visit/visit.service';
+import { ActivatedRoute } from '@angular/router';
 
 
 
@@ -13,6 +14,7 @@ import { VisitService } from '../../../../_services/_visit/visit.service';
   styleUrls: ['./visit-add-dialog.component.css']
 })
 export class VisitAddDialogComponent implements OnInit {
+  public dialogRef: MatDialogRef<VisitAddDialogComponent>
 
   veterinary = [];
   model: any = {};
@@ -20,7 +22,7 @@ export class VisitAddDialogComponent implements OnInit {
   
    
 
-  constructor(private service: VetService, private visitService: VisitService, private alertify: AlertifyService, private dialog: MatDialog, private datePipe: DatePipe)
+  constructor(@Inject(MAT_DIALOG_DATA)  public dialogBoxAnimalNumber,private service: VetService, private visitService: VisitService, private alertify: AlertifyService,private dialog: MatDialog, private datePipe: DatePipe, private route: ActivatedRoute)
   {
     service.getAll().subscribe(next => {
       alertify.sucess("Załadowano lekarzy");
@@ -31,21 +33,22 @@ export class VisitAddDialogComponent implements OnInit {
       }
       console.log(this.veterinary);
     }, error => {
-        alertify.error("Wystąpił błąd załadowania Lekarzy");
+        alertify.error("Wystąpił błąd załadowania lekarzy");
     });
   }
 
-
-
   ngOnInit() {
+    console.log(this.dialogBoxAnimalNumber.anyProperty);
   }
 
   addVisit() {
-
     console.log(this.model);
     console.log(this.datePipe.transform(this.model.visit_date, 'yyyy-MM-ddTHH:mm:ss.SSS'));
-    var variable = this.visitService.add(this.model.visite_date, this.model.visit_notes, this.model.med_visit_summary, this.model.visit_category, this.model.pet_id, this.model.vet_id);
+    console.log(this.dialogBoxAnimalNumber.anyProperty);
+    var variable = this.visitService.add(this.model.visit_date, this.model.visit_notes, this.model.med_visit_summary, this.model.visit_category, this.dialogBoxAnimalNumber.anyProperty, this.model.vet_id);
     //var variable = this.services.add(this.model.vet_name, this.model.vet_adress, this.model.vet_city, this.model.vet_state, this.model.vet_zip, this.model.vet_phone, this.model.vet_email, this.model.vet_med_rec_site);
   }
+
+
 
 }

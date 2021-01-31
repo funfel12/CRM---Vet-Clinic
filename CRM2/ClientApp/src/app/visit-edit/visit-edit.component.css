@@ -1,0 +1,49 @@
+h3 {
+  margin: 0 0 10px;
+  color: white;
+}
+
+body {
+  background-image: url('https://mir-s3-cdn-cf.behance.net/project_modules/1400_opt_1/dfbdc430671987.570216e669d64.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  height: 100%;
+}
+
+.area {
+  float: left;
+  margin-left: 5vw;
+  width: 90vw;
+  height: 100%;
+  display: flex;
+}
+
+.profil {
+  float: left;
+  width: 20%;
+  height: 100%;
+  background: rgba(64, 0, 0,0.64);
+}
+
+.visit-body {
+  background: rgba(0, 0, 0, 0.44);
+  width: 79%;
+}
+
+
+.inputFormEdit {
+  align-content: center;
+  margin-left: 15%;
+  overflow:auto;
+}
+
+.line {
+  width: 1%;
+  height: 100%;
+  background-color: transparent;
+}
+
+.inputFormEdit {
+  color: white !important;
+}

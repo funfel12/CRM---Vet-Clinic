@@ -5,8 +5,9 @@ import { VisitEditDialogComponent } from '../_dialog/visit/edit/visit-edit-dialo
 import { MatDialog } from '@angular/material/dialog';
 import { OwnerService } from '../_services/_owner/owner.service';
 import { AlertifyService } from '../_services/_alertify/alertify.service';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ButtonRenderComponent } from '../_render/button-render/button-render.component';
+import { VisitService } from '../_services/_visit/visit.service';
 
 
 
@@ -25,32 +26,28 @@ export class VisitComponent implements OnInit {
   rowDataClicked2 = {};
   rowDataClicked3 = {};
   rowData = [];
+  visit: any;
 
 
 
-
-
-
-  constructor(public dialog: MatDialog, private service: OwnerService, private alertify: AlertifyService, private route: Router) {
+  constructor(public dialog: MatDialog, private routeRe: ActivatedRoute, private service: VisitService, private alertify: AlertifyService, private route: Router) {
     this.frameworkComponents = {
       buttonRenderer: ButtonRenderComponent,
     }
   }
 
   ngOnInit() {
+  
+
+    this.routeRe.paramMap.subscribe(params => {
+      this.visit = parseInt(params.get("visit"));
+    })
+    console.log(this.visit);
     this.refresh();
   }
 
   columnDefs = [
-    {
-      cellRendererParams: {
-        onClick: this.onBtnClick1.bind(this),
-        label: 'Edytuj'
-      },
-      headerName: 'Edytuj',
-      cellRenderer: 'buttonRenderer',
-
-    },
+  
     {
       cellRendererParams: {
         onClick: this.onBtnClick2.bind(this),
@@ -71,12 +68,12 @@ export class VisitComponent implements OnInit {
     },
     { headerName: 'Id', field: 'Id' },
     { headerName: 'Data utworzenia', field: 'CreatedDate' },
-    { headerName: 'Imie', field: 'owner_first_name' },
-    { headerName: 'Nazwisko', field: 'owner_last_name' },
-    { headerName: 'Adres', field: 'owner_adress' },
-    { headerName: 'Miasto', field: 'owner_city' },
-    { headerName: 'Telefon', field: 'owner_telephone' },
-    { headerName: 'Email', field: 'owner_email' }
+    { headerName: 'Data wizyty', field: 'visit_date' },
+    { headerName: 'Notatka z wizyty', field: 'visit_notes' },
+    { headerName: 'Podsumowanie wizyty', field: 'med_visit_summary' },
+    { headerName: 'Kategoria', field: 'visit_category' },
+    { headerName: 'Zwierze', field: 'pet_id' },
+    { headerName: 'Lekarz weterynarii', field: 'vet_id' }
 
 
 
@@ -94,7 +91,7 @@ export class VisitComponent implements OnInit {
 
   onBtnClick3(e) {
     this.rowDataClicked3 = e.rowData;
-    this.route.navigate(['/animal/' + this.rowDataClicked3['Id']]);
+    this.route.navigate(['/visitedit/' + this.rowDataClicked3['Id']]);
   }
 
   openDialogDelete(dialgBoxIdToDelete: number): void {
@@ -117,14 +114,17 @@ export class VisitComponent implements OnInit {
   }
 
   openDialogAdd(): void {
+    console.log(this.visit);
     let dialogRef = this.dialog.open(VisitAddDialogComponent, {
       width: '700px',
       height: '40%',
       panelClass: 'custom-dialog',
+      data: {
+        anyProperty: this.visit
+      }
+
     });
     dialogRef.afterClosed().subscribe(result => {
-
-
     });
   }
 
@@ -141,8 +141,8 @@ export class VisitComponent implements OnInit {
   }
 
   refresh() {
-    this.service.getAll().subscribe(next => {
-      this.alertify.sucess("Załadowano użytkowników");
+    this.service.get(this.visit).subscribe(next => {
+      this.alertify.sucess("Załadowano wizyty");
       this.rowData = [];
       for (let i = 0; i < next.length; i++) {
         console.log(next[i].CreatedDate);
@@ -150,7 +150,7 @@ export class VisitComponent implements OnInit {
         console.log(this.rowData)
       }
     }, error => {
-      this.alertify.error("Wystąpił błąd załadowania uzytkowników");
+      this.alertify.error("Wystąpił błąd załadowania wizyt");
     });
   }
 }

@@ -10,6 +10,7 @@ namespace CRM2.Dtos.VisitDtos
 
 
     {
+        [Required(ErrorMessage = "Id jest wymagany")]
         public int Id { get; set; }
         [Required(ErrorMessage = "Data wyzity jest wymagana")]
         public DateTime visit_date { get; set; }
@@ -17,8 +18,6 @@ namespace CRM2.Dtos.VisitDtos
         public String med_visit_summary { get; set; }
         [Required(ErrorMessage = "Kategoria jest wymagana")]
         public String visit_category { get; set; }
-        [Required(ErrorMessage = "Pet id jest wymagane")]
-        public int pet_id { get; set; }
         [Required(ErrorMessage = "Vet id jest wymagane")]
         public int vet_id { get; set; }
     }

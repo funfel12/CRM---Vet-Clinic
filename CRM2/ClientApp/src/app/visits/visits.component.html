@@ -2,8 +2,6 @@
 <app-nav-menu></app-nav-menu>
 <body>
   <div class="area">
-
-
     <div class="data-container">
       <button mat-stroked-button color="accent" mwlCalendarPreviousView
               [view]="view"
@@ -28,6 +26,9 @@
       <button mat-stroked-button color="accent" style="float:right;">{{ viewDate | calendarDate:(view + 'ViewTitle'):'en' }}</button>
 
       <br />
+      <br />
+   
+     
       <div [ngSwitch]="view" class="data-container">
         <mwl-calendar-month-view *ngSwitchCase="CalendarView.Month"
                                  [viewDate]="viewDate"
@@ -38,6 +39,7 @@
                                  (eventClicked)="handleEvent('Clicked', $event.event)"
                                  (eventTimesChanged)="eventTimesChanged($event)">
         </mwl-calendar-month-view>
+
         <mwl-calendar-week-view *ngSwitchCase="CalendarView.Week"
                                 [viewDate]="viewDate"
                                 [events]="events"
@@ -45,6 +47,7 @@
                                 (eventClicked)="handleEvent('Clicked', $event.event)"
                                 (eventTimesChanged)="eventTimesChanged($event)">
         </mwl-calendar-week-view>
+
         <mwl-calendar-day-view *ngSwitchCase="CalendarView.Day"
                                [viewDate]="viewDate"
                                [events]="events"
@@ -52,6 +55,7 @@
                                (eventClicked)="handleEvent('Clicked', $event.event)"
                                (eventTimesChanged)="eventTimesChanged($event)">
         </mwl-calendar-day-view>
+
       </div>
 
     </div>

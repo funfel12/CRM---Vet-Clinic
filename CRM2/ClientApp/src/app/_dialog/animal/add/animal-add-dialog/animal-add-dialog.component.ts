@@ -18,13 +18,12 @@ export class AnimalAddDialogComponent implements OnInit {
 
   model: any = {};
 
-
   ngOnInit() {
-    console.log(this.dialogBoxOwnerNumber.anyProperty);
-   
+
   }
 
   addAnimal() {
+    console.log(this.dialogBoxOwnerNumber.anyProperty.visit);
     this.service.add(this.model.pet_name, this.model.pet_species, this.model.pet_breed, this.model.pet_sex, this.model.pet_color, this.dialogBoxOwnerNumber.anyProperty,this.model.pet_dob)
   }
 

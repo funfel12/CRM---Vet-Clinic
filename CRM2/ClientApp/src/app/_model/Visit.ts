@@ -1,4 +1,4 @@
-export class Vet {
+export class Visit {
   constructor(
     public Id: number,
     public CreatedDate: string,
@@ -8,8 +8,5 @@ export class Vet {
     public visit_category: string,
     public pet_id: number,
     public vet_id: string,
-  ) {
-
-  }
-
+  ) { }
 }

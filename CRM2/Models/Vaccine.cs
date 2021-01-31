@@ -22,16 +22,9 @@ namespace CRM2.Models
         public DateTime vaccine_date_expires { get; set; }
         [MaxLength(5000)]
         public string vaccine_notes { get; set; }
-        [MaxLength(200)]
-        public string vaccine_current_flag { get; set; }
-        [MaxLength(500)]
-        public string vaccine_certifate { get; set; }
-
         [ForeignKey("Visit")]
         public int visit_id { get; set; }
         public Visit Visit { get; set; }
-
-
 
     }
 }

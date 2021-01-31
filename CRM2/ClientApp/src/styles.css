@@ -69,6 +69,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     /* background-color: var(--body-background-color); */
   }
 
-::ng-deep .mat-form-field-infix {
+.mat-form-field-infix {
   color: white !important;
+}
+
+.mat-form-field-infix {
+  display: block;
+  position: relative;
+  flex: auto;
+  min-width: 0;
+  color: white !important;
+  width: 180px;
+}
+
+.mat-datepicker-content{
+    background: black !important;
 }

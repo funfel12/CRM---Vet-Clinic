@@ -1,0 +1,120 @@
+<app-nav-menu></app-nav-menu>
+<body>
+  <div class="area">
+
+
+    <div class="visit-body">
+     
+
+      <ng-container [ngSwitch]="modeView">
+        <ng-container *ngSwitchCase="'ser'">
+          <button mat-stroked-button color="accent" type="submit" (click)="openDialogAdd()">Dodaj<mat-icon>add</mat-icon></button>
+          <button mat-stroked-button color="accent" type="submit" (click)="refresh()">Odśwież<mat-icon>refresh</mat-icon></button>
+          <button mat-stroked-button color="accent" type="submit">Export <mat-icon>cloud_download</mat-icon></button>
+          <button mat-stroked-button color="accent" style="float:right;" (click)="changeModeView('med')">Medykamenty</button>
+          <button mat-stroked-button color="accent" style="float:right;" (click)="changeModeView('vac')">Szczepienia</button>
+          <button mat-stroked-button color="accent" style="float:right;" (click)="changeModeView('ser')">Usługi</button>
+
+          <ag-grid-angular style="width: 95%; height: 70%; background-color:black; margin:2%;"
+                           class="ag-theme-alpine"
+                           [rowData]="rowData"
+                           [columnDefs]="columnDefs"
+                           [frameworkComponents]="frameworkComponents">
+          </ag-grid-angular>
+
+
+        </ng-container>
+        <ng-container *ngSwitchCase="'vac'">
+          <button mat-stroked-button color="accent" type="submit" (click)="openDialogAdd()">Dodaj<mat-icon>add</mat-icon></button>
+          <button mat-stroked-button color="accent" type="submit" (click)="refresh()">Odśwież<mat-icon>refresh</mat-icon></button>
+          <button mat-stroked-button color="accent" type="submit">Export <mat-icon>cloud_download</mat-icon></button>
+          <button mat-stroked-button color="accent" style="float:right;" (click)="changeModeView('med')">Medykamenty</button>
+          <button mat-stroked-button color="accent" style="float:right;" (click)="changeModeView('vac')">Szczepienia</button>
+          <button mat-stroked-button color="accent" style="float:right;" (click)="changeModeView('ser')">Usługi</button>
+
+          <ag-grid-angular style="width: 95%; height: 70%; background-color:black; margin:2%;"
+                           class="ag-theme-alpine"
+                           [rowData]="rowData"
+                           [columnDefs]="columnDefs"
+                           [frameworkComponents]="frameworkComponents">
+          </ag-grid-angular>
+        </ng-container>
+        <ng-container *ngSwitchCase="'med'">
+          <button mat-stroked-button color="accent" type="submit" (click)="openDialogAdd()">Dodaj<mat-icon>add</mat-icon></button>
+          <button mat-stroked-button color="accent" type="submit" (click)="refresh()">Odśwież<mat-icon>refresh</mat-icon></button>
+          <button mat-stroked-button color="accent" type="submit">Export <mat-icon>cloud_download</mat-icon></button>
+          <button mat-stroked-button color="accent" style="float:right;" (click)="changeModeView('med')">Medykamenty</button>
+          <button mat-stroked-button color="accent" style="float:right;" (click)="changeModeView('vac')">Szczepienia</button>
+          <button mat-stroked-button color="accent" style="float:right;" (click)="changeModeView('ser')">Usługi</button>
+
+          <ag-grid-angular style="width: 95%; height: 70%; background-color:black; margin:2%;"
+                           class="ag-theme-alpine"
+                           [rowData]="rowData"
+                           [columnDefs]="columnDefs"
+                           [frameworkComponents]="frameworkComponents">
+          </ag-grid-angular>
+        </ng-container>
+        <ng-container *ngSwitchDefault>Błąd!</ng-container>
+      </ng-container>
+
+
+
+
+
+
+
+
+    </div>
+    <div class="line"></div>
+    <div class="profil">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Creative-Tail-Animal-kangoroo.svg/1200px-Creative-Tail-Animal-kangoroo.svg.png" alt="Avatar" style="width:125px; margin-top:10%; margin-left:30%">
+      <br />
+      <br />
+      <div class="inputFormEdit">
+        <form #visiteditForm="ngForm" (submit)="editVisit()">
+          <mat-form-field>
+            <input matInput [ngxMatDatetimePicker]="picker" placeholder="Data spotkania" [(ngModel)]="visitModel.visit_date" name="visit_date">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <ngx-mat-datetime-picker #picker></ngx-mat-datetime-picker>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input name="visit_category" type="text" matInput placeholder="Kategoria wizyty" [(ngModel)]="visitModel.visit_category" required>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-select [(ngModel)]="visitModel.vet_id" name="vet_id">
+              <mat-option *ngFor="let vet of veterinary" [value]="vet.Id">
+                Lek. Vet. {{vet.vet_name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Notatka z wizyty</mat-label>
+            <textarea [(ngModel)]="visitModel.visit_notes" matInput placeholder="Notatka z wizyty"  name="visit_notes"></textarea>
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Rezultat z wizyty</mat-label>
+            <textarea [(ngModel)]="visitModel.med_visit_summary" matInput placeholder="Notatka z wizyty"  name="med_visit_summary"></textarea>
+          </mat-form-field>
+
+
+          <mat-form-field>
+            <input name="visit_weight" type="text" matInput placeholder="Waga" [(ngModel)]="visitModel.visit_weight">
+          </mat-form-field>
+
+          <br />
+          <br />
+          <br />
+          <button [disabled]="!visiteditForm.valid" type="submit" mat-stroked-button color="accent" cdkFocusInitial>Edytuj</button>
+        </form>
+
+      </div>
+    </div>
+
+
+  </div> 
+</body>
+
