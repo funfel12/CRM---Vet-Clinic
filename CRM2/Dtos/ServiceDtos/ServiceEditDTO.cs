@@ -14,7 +14,6 @@ namespace CRM2.Dtos.ServiceDtos
         public String serv_name { get; set; }
         [Required(ErrorMessage = "Deskrypcja usługi jest wymagana")]
         public String serv_description { get; set; }
-        [Required(ErrorMessage = "Deskrypcja usługi jest wymagana")]
-        public String med_prescription { get; set; }
+
     }
 }

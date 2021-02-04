@@ -85,3 +85,26 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .mat-datepicker-content{
     background: black !important;
 }
+
+.cal-month-view {
+  background: rgba(126, 103, 207,0.7) !important;
+}
+
+.cal-month-view {
+  background: rgba(126, 103, 207,0.5) !important;
+  height: 93vh !important;
+}
+
+.cal-header {
+  color: white !important;
+}
+
+.cal-month-view .cal-cell-row .cal-cell:hover, .cal-month-view .cal-cell.cal-has-events.cal-open {
+  background-color: rgba(129, 152, 48,0.9) !important;
+}
+
+.cal-month-view .cal-open-day-events {
+ 
+  background-color: rgba(0, 0, 0, 0.5) !important;
+
+}

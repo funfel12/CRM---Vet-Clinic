@@ -17,5 +17,9 @@ namespace CRM2.Data.Repository
         {
             return await _context.Set<Visit>().Where(x => x.pet_id == id).ToListAsync();
         }
+        public async Task<IEnumerable<Visit>> GetVisitAllData()
+        {
+            return await _context.Set<Visit>().Include(z => z.Vet).Include(x => x.Pet).ThenInclude(x => x.Owner).ToListAsync();
+        }
     }
 }

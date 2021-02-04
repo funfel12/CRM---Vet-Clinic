@@ -13,6 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.11" />
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.10" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.0" />
@@ -21,6 +22,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,7 +37,10 @@
     <None Remove="ClientApp\src\app\_model\Dicmed.ts" />
     <None Remove="ClientApp\src\app\_model\Dicservice.ts" />
     <None Remove="ClientApp\src\app\_model\Dicvaccine.ts" />
+    <None Remove="ClientApp\src\app\_model\Med.ts" />
     <None Remove="ClientApp\src\app\_model\Owner.ts" />
+    <None Remove="ClientApp\src\app\_model\Service.ts" />
+    <None Remove="ClientApp\src\app\_model\Vaccine.ts" />
     <None Remove="ClientApp\src\app\_model\Vet.ts" />
     <None Remove="ClientApp\src\app\_model\Visit.ts" />
   </ItemGroup>
@@ -72,6 +77,9 @@
     <Folder Include="ClientApp\src\app\_dialog\visit\delete\" />
     <Folder Include="ClientApp\src\app\_dialog\visit\edit\" />
     <Folder Include="ClientApp\src\app\_render\_button_render\" />
+    <Folder Include="ClientApp\src\app\_services\_service\" />
+    <Folder Include="ClientApp\src\app\_services\_med\" />
+    <Folder Include="ClientApp\src\app\_services\_vaccine\" />
     <Folder Include="ClientApp\src\app\_services\_dicvaccine\" />
     <Folder Include="ClientApp\src\app\_services\_dicservice\" />
     <Folder Include="ClientApp\src\app\_services\_dicmed\" />
@@ -81,6 +89,7 @@
     <Folder Include="ClientApp\src\app\_services\_owner\" />
     <Folder Include="ClientApp\src\app\_services\_alertify\" />
     <Folder Include="ClientApp\src\app\_services\_auth\" />
+    <Folder Include="ClassDiagram\" />
   </ItemGroup>
 
   <ItemGroup>
@@ -88,7 +97,10 @@
     <TypeScriptCompile Include="ClientApp\src\app\_model\Dicmed.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_model\Dicservice.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_model\Dicvaccine.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\_model\Med.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_model\Owner.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\_model\Service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\_model\Vaccine.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_model\Vet.ts" />
     <TypeScriptCompile Include="ClientApp\src\app\_model\Visit.ts" />
   </ItemGroup>

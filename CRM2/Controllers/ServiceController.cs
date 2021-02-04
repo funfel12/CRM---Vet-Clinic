@@ -28,7 +28,6 @@ namespace CRM2.Controllers
                 CreatedDate = DateTime.UtcNow,
                 serv_name = addDT0.serv_name,
                 serv_description = addDT0.serv_description,
-                med_prescription = addDT0.med_prescription,
                 visit_id = addDT0.visit_id
             };
             await _repository.Add(service);
@@ -65,7 +64,6 @@ namespace CRM2.Controllers
             service.CreatedDate = DateTime.UtcNow;
             service.serv_name = editDT0.serv_name;
             service.serv_description = editDT0.serv_description;
-            service.med_prescription = editDT0.med_prescription;
             _repository.Update(service);
 
             return Ok();

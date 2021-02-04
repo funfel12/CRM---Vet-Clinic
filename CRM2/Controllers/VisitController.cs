@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Threading.Tasks;
 using CRM2.Data.RepoInterface.IGenericRepository;
 using CRM2.Dtos.PetDtos;
@@ -37,14 +40,42 @@ namespace CRM2.Controllers
             };
             await _repository.Add(visit);
 
+
+            var data = await _repository.GetVisitAllData();
+
+            Owner owner = data.Where(x => x.pet_id == addDT0.pet_id).Select(x => x.Pet).Select(x=>x.Owner).FirstOrDefault();
+            var fromAddress = new MailAddress("mgolas1234@gmail.com", "Wizyta weterynaryjna");
+            var toAddress = new MailAddress(owner.owner_email, "To Name");
+            const string fromPassword = "Funfelnowka12@!";
+            const string subject = "test";
+            string body = "Witaj "+ owner.owner_first_name+" "+owner.owner_last_name+"!"+" Masz umówiona wizyte dnia i o godzinie: "+ addDT0.visit_date.ToString("yyyy-MM-dd HH:mm:ss")+" W naszej klinice";
+
+            var smtp = new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                Credentials = new NetworkCredential(fromAddress.Address, fromPassword),
+                Timeout = 20000
+            };
+            using (var message = new MailMessage(fromAddress, toAddress)
+            {
+                Subject = subject,
+                Body = body
+            })
+            {
+                smtp.Send(message);
+            }
+
             return StatusCode(201);
         }
 
 
         [HttpPost("getAll")]
-        public async Task<IActionResult> GetAllOwner()
+        public async Task<IActionResult> GetAllVisits()
         {
-            var data = await _repository.GetAll();
+            var data = await _repository.GetVisitAllData();
             return Ok(data);
         }
 

@@ -1,0 +1,32 @@
+<h3 mat-dialog-title color="accent">
+  <button mat-icon-button color="warn" (click)="dialog.closeAll()">
+    <mat-icon>cancel</mat-icon>
+    Dodawanie
+  </button>
+</h3>
+
+<form #serviceAddForm="ngForm" (submit)="addService()">
+
+  <div style="width: 50%; float:left">
+    <mat-form-field>
+      <input [(ngModel)]="model.serv_description" name="serv_description" type="text" matInput placeholder="Opis usługi" required>
+    </mat-form-field>
+  </div>
+  <div style="width: 50%; float:right">
+    <div mat-dialog-content>
+      <mat-form-field>
+        <mat-select [(ngModel)]="model.serv_name" name="serv_name">
+          <mat-option *ngFor="let serv of services" [value]="serv.dic_services_name">
+            {{serv.dic_services_name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+      <button [disabled]="!serviceAddForm.valid" type="submit" mat-stroked-button color="accent" cdkFocusInitial>Dodaj</button>
+      <button mat-stroked-button color="warn" type="button" (click)="dialog.closeAll()"><mat-icon>cancel</mat-icon>Nie dziękuje</button>
+
+    </div>
+  </div>
+</form>
+

@@ -55,7 +55,11 @@ export class DicmedComponent implements OnInit {
 
     },
     { headerName: 'Id', field: 'Id' },
-    { headerName: 'Data utworzenia', field: 'CreatedDate'},
+    {
+      headerName: 'Data utworzenia', field: 'CreatedDate', cellRenderer: (data) => {
+        return data.value ? (new Date(data.value)).toLocaleDateString() : '';
+      }
+    },
     { headerName: 'Nazwa produktu', field: 'dic_meds_name'},
     { headerName: 'Cena produktu', field: 'Price' },
   ];

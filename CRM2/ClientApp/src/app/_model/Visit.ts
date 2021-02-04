@@ -1,3 +1,6 @@
+import { Animal } from "./Animal";
+import { Vet } from "./Vet";
+
 export class Visit {
   constructor(
     public Id: number,
@@ -8,5 +11,9 @@ export class Visit {
     public visit_category: string,
     public pet_id: number,
     public vet_id: string,
+    public pet: Animal,
+    public vet: Vet
   ) { }
+
+
 }

@@ -69,7 +69,11 @@ export class HeadComponent implements OnInit {
 
     },
     { headerName: 'Id', field: 'Id' },
-    { headerName: 'Data utworzenia', field: 'CreatedDate' },
+    {
+      headerName: 'Data utworzenia', field: 'CreatedDate', cellRenderer: (data) => {
+        return data.value ? (new Date(data.value)).toLocaleDateString() : '';
+      }
+    },
     { headerName: 'Imie', field: 'owner_first_name' },
     { headerName: 'Nazwisko', field: 'owner_last_name' },
     { headerName: 'Adres', field: 'owner_adress' },

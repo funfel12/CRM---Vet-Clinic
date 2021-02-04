@@ -28,17 +28,14 @@ export class VisitComponent implements OnInit {
   rowData = [];
   visit: any;
 
-
-
   constructor(public dialog: MatDialog, private routeRe: ActivatedRoute, private service: VisitService, private alertify: AlertifyService, private route: Router) {
     this.frameworkComponents = {
       buttonRenderer: ButtonRenderComponent,
     }
   }
 
-  ngOnInit() {
-  
 
+  ngOnInit() {
     this.routeRe.paramMap.subscribe(params => {
       this.visit = parseInt(params.get("visit"));
     })
@@ -67,8 +64,22 @@ export class VisitComponent implements OnInit {
 
     },
     { headerName: 'Id', field: 'Id' },
-    { headerName: 'Data utworzenia', field: 'CreatedDate' },
-    { headerName: 'Data wizyty', field: 'visit_date' },
+    {
+      headerName: 'Data utworzenia', field: 'CreatedDate', cellRenderer: (data) => {
+        return data.value ? (new Date(data.value)).toLocaleDateString() : '';
+      }
+    },
+    {
+      headerName: 'Data wizyty', field: 'visit_date', cellRenderer: (data) => {
+        return data.value ? (new Date(data.value)).toLocaleDateString() : '';
+      }
+    },
+    {
+      headerName: 'Godzina wizyty', field: 'visit_date', cellRenderer: (data) => {
+        return data.value ? (new Date(data.value)).toLocaleTimeString() : '';
+      }
+    },
+
     { headerName: 'Notatka z wizyty', field: 'visit_notes' },
     { headerName: 'Podsumowanie wizyty', field: 'med_visit_summary' },
     { headerName: 'Kategoria', field: 'visit_category' },

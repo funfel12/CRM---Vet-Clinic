@@ -1,13 +1,10 @@
 
-
-
 <h3 mat-dialog-title color="accent">
   <button mat-icon-button color="warn" (click)="dialog.closeAll()">
     <mat-icon>cancel</mat-icon>
     Dodawanie
   </button>
 </h3>
-
 <form #ownerAddForm="ngForm" (submit)="addOwner()">
   <div style="width: 50%; float:left">
     <mat-form-field>
@@ -22,15 +19,13 @@
       <input [(ngModel)]="model.owner_adress" name="owner_adress" type="text" matInput placeholder="Ulica" required>
     </mat-form-field>
     <br />
-
-
   </div>
 
   <div style="width: 50%; float:right">
-    <div mat-dialog-content>
       <mat-form-field>
         <input [(ngModel)]="model.owner_city" name="owner_city" type="text" matInput placeholder="Miasto" required>
       </mat-form-field>
+      <br />
       <mat-form-field>
         <input [(ngModel)]="model.owner_telephone" name="owner_telephone" type="text" matInput placeholder="Telefon" required>
       </mat-form-field>
@@ -38,15 +33,10 @@
       <mat-form-field>
         <input [(ngModel)]="model.owner_email" name="owner_email" type="text" matInput placeholder="Email" required>
       </mat-form-field>
-
-    </div>
+      <br />
     <div mat-dialog-actions>
-    
-        <button [disabled]="!ownerAddForm.valid" type="submit" mat-stroked-button color="accent" cdkFocusInitial>Dodaj</button>
-        <button mat-stroked-button color="warn" type="button" (click)="dialog.closeAll()"><mat-icon>cancel</mat-icon>Nie dziękuje</button>
-    
-     
-
+      <button [disabled]="!ownerAddForm.valid" type="submit" mat-stroked-button color="accent" cdkFocusInitial>Dodaj</button>
+      <button mat-stroked-button color="warn" type="button" (click)="dialog.closeAll()"><mat-icon>cancel</mat-icon>Nie dziękuje</button>
     </div>
   </div>
 </form>

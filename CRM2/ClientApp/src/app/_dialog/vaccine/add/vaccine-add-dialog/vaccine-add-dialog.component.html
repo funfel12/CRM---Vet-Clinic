@@ -1,0 +1,56 @@
+<h3 mat-dialog-title color="accent">
+  <button mat-icon-button color="warn" (click)="dialog.closeAll()">
+    <mat-icon>cancel</mat-icon>
+    Dodawanie
+  </button>
+</h3>
+
+<form #vaccineAddForm="ngForm" (submit)="addVaccine()">
+
+  <div style="width: 50%; float:left">
+
+    <mat-form-field>
+      <input [(ngModel)]="model.vaccine_series_num" name="vaccine_series_num" type="text" matInput placeholder="Numer seryjny szczepionki" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input [(ngModel)]="model.vaccine_notes" name="vaccine_notes" type="text" matInput placeholder="Notatka o szczepieniu" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input [(ngModel)]="model.vaccine_description" name="vaccine_description" type="text" matInput placeholder="Podsumowanie" required>
+    </mat-form-field>
+  </div>
+
+  <div style="width: 50%; float:right">
+
+    <mat-form-field>
+      <input [matDatepicker]="picker" [(ngModel)]="model.vaccine_date_given" name="vaccine_date_given" matInput placeholder="Data podania szczepionki" required>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input [matDatepicker]="picker2" [(ngModel)]="model.vaccine_date_expires" name="vaccine_date_expires" matInput placeholder="Termin następnego szczepienia" required>
+      <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+      <mat-datepicker #picker2></mat-datepicker>
+    </mat-form-field>
+
+
+
+    <div mat-dialog-content>
+      <mat-form-field>
+        <mat-select [(ngModel)]="model.vaccine_name" name="vaccine_name">
+          <mat-option *ngFor="let vac of vaccine" [value]="vac.dic_vaccines_name">
+            {{vac.dic_vaccines_name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+      <button [disabled]="!vaccineAddForm.valid" type="submit" mat-stroked-button color="accent" cdkFocusInitial>Dodaj</button>
+      <button mat-stroked-button color="warn" type="button" (click)="dialog.closeAll()"><mat-icon>cancel</mat-icon>Nie dziękuje</button>
+    </div>
+  </div>
+
+
+</form>
+

@@ -16,8 +16,6 @@ namespace CRM2.Models
         public String serv_name { get; set; }
         [MaxLength(1500)]
         public String serv_description { get; set; }
-        [MaxLength(5000)]
-        public String med_prescription { get; set; }
         [ForeignKey("Visit")]
         public int visit_id { get; set; }
         public Visit Visit { get; set; }

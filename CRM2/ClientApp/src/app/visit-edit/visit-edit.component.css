@@ -22,8 +22,9 @@ body {
 .profil {
   float: left;
   width: 20%;
-  height: 100%;
+  max-height: 100%;
   background: rgba(64, 0, 0,0.64);
+  overflow:auto;
 }
 
 .visit-body {
@@ -33,9 +34,11 @@ body {
 
 
 .inputFormEdit {
-  align-content: center;
-  margin-left: 15%;
-  overflow:auto;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  vertical-align: middle;
+  overflow: auto;
 }
 
 .line {
@@ -46,4 +49,8 @@ body {
 
 .inputFormEdit {
   color: white !important;
+}
+
+.inputFormEdit ::ng-deep.mat-form-field-infix{
+    min-width:13vw !important;
 }

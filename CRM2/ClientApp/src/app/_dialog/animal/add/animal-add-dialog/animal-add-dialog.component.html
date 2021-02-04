@@ -27,7 +27,7 @@
   </div>
 
   <div style="width: 50%; float:right">
-    <div mat-dialog-content>
+  
       <mat-form-field>
         <input [(ngModel)]="model.pet_name" name="pet_name" type="text" matInput placeholder="Imie" required>
       </mat-form-field>
@@ -39,15 +39,12 @@
         <input [(ngModel)]="model.pet_sex" name="pet_sex" type="text" matInput placeholder="Płeć" required>
       </mat-form-field>
       <br />
+      <div mat-dialog-actions>
+        <button [disabled]="!ownerAddForm.valid" type="submit" mat-stroked-button color="accent" cdkFocusInitial>Dodaj</button>
+        <button mat-stroked-button color="warn" type="button" (click)="dialog.closeAll()"><mat-icon>cancel</mat-icon>Nie dziękuje</button>
 
-    </div>
-    <div mat-dialog-actions>
+      </div>
+</div>
 
-      <button [disabled]="!ownerAddForm.valid" type="submit" mat-stroked-button color="accent" cdkFocusInitial>Dodaj</button>
-      <button mat-stroked-button color="warn" type="button" (click)="dialog.closeAll()"><mat-icon>cancel</mat-icon>Nie dziękuje</button>
-
-
-
-    </div>
-  </div>
+  
 </form>

@@ -54,7 +54,11 @@ export class DicvacineComponent implements OnInit {
 
     },
     { headerName: 'Id', field: 'Id' },
-    { headerName: 'Data utworzenia', field: 'CreatedDate' },
+    {
+      headerName: 'Data utworzenia', field: 'CreatedDate', cellRenderer: (data) => {
+        return data.value ? (new Date(data.value)).toLocaleDateString() : '';
+      }
+    },
     { headerName: 'Nazwa szczepionki', field: 'dic_vaccines_name' },
     { headerName: 'Cena szczepionki', field: 'Price' },
   ];

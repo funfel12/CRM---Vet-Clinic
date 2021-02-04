@@ -91,6 +91,18 @@ import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { NgxMatDatetimePickerModule } from '@angular-material-components/datetime-picker';
 import { DatePipe } from '@angular/common';
 import { VisitEditComponent } from './visit-edit/visit-edit.component';
+import { ServiceService } from './_services/_service/service.service';
+import { VaccineService } from './_services/_vaccine/vaccine.service';
+import { MedService } from './_services/_med/med.service';
+import { VaccineAddDialogComponent } from './_dialog/vaccine/add/vaccine-add-dialog/vaccine-add-dialog.component';
+import { VaccineEditDialogComponent } from './_dialog/vaccine/edit/vaccine-edit-dialog/vaccine-edit-dialog.component';
+import { VaccineDeleteDialogComponent } from './_dialog/vaccine/delete/vaccine-delete-dialog/vaccine-delete-dialog.component';
+import { MedAddDialogComponent } from './_dialog/med/add/med-add-dialog/med-add-dialog.component';
+import { MedEditDialogComponent } from './_dialog/med/edit/med-edit-dialog/med-edit-dialog.component';
+import { MedDeleteDialogComponent } from './_dialog/med/delete/med-delete-dialog/med-delete-dialog.component';
+import { ServiceAddDialogComponent } from './_dialog/service/add/service-add-dialog/service-add-dialog.component';
+import { ServiceEditDialogComponent } from './_dialog/service/edit/service-edit-dialog/service-edit-dialog.component';
+import { ServiceDeleteDialogComponent } from './_dialog/service/delete/service-delete-dialog/service-delete-dialog.component';
 
 
 
@@ -132,14 +144,16 @@ import { VisitEditComponent } from './visit-edit/visit-edit.component';
     DicvaccineAddDialogComponent,
     DicvaccineEditDialogComponent,
     DicvaccineDeleteDialogComponent,
-    VisitEditComponent
-
-   
-
-
-   
-
-
+    VisitEditComponent,
+    VaccineAddDialogComponent,
+    VaccineEditDialogComponent,
+    VaccineDeleteDialogComponent,
+    MedAddDialogComponent,
+    MedEditDialogComponent,
+    MedDeleteDialogComponent,
+    ServiceAddDialogComponent,
+    ServiceEditDialogComponent,
+    ServiceDeleteDialogComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -252,14 +266,37 @@ import { VisitEditComponent } from './visit-edit/visit-edit.component';
 
   ],
   providers: [AuthService, AlertifyService, AnimalService, VisitService, VetService, DicserviceService, DicmedService,
-    DatePipe],
+    DatePipe, ServiceService, VaccineService, MedService],
   bootstrap: [AppComponent],
-  entryComponents: [OwnerAddDialogComponent, DicmedAddDialogComponent, OwnerDeleteDialogComponent, OwnerEditDialogComponent, AnimalAddDialogComponent, AnimalDeleteDialogComponent, VisitAddDialogComponent, VisitEditDialogComponent, VisitDeleteDialogComponent, VetAddDialogComponent, VetDeleteDialogComponent, VetEditDialogComponent, DicmedEditDialogComponent, DicmedDeleteDialogComponent, DicserviceAddComponent,
+  entryComponents: [OwnerAddDialogComponent,
+    DicmedAddDialogComponent,
+    OwnerDeleteDialogComponent,
+    OwnerEditDialogComponent,
+    AnimalAddDialogComponent,
+    AnimalDeleteDialogComponent,
+    VisitAddDialogComponent,
+    VisitEditDialogComponent,
+    VisitDeleteDialogComponent,
+    VetAddDialogComponent,
+    VetDeleteDialogComponent,
+    VetEditDialogComponent,
+    DicmedEditDialogComponent,
+    DicmedDeleteDialogComponent,
+    DicserviceAddComponent,
     DicserviceEditComponent,
     DicserviceDeleteComponent,
     DicvaccineAddDialogComponent,
     DicvaccineEditDialogComponent,
     DicvaccineDeleteDialogComponent,
+    VaccineAddDialogComponent,
+    VaccineEditDialogComponent,
+    VaccineDeleteDialogComponent,
+    MedAddDialogComponent,
+    MedEditDialogComponent,
+    MedDeleteDialogComponent,
+    ServiceAddDialogComponent,
+    ServiceEditDialogComponent,
+    ServiceDeleteDialogComponent
     ]
 })
 export class AppModule { }

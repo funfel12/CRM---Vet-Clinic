@@ -19,12 +19,24 @@ import { map } from 'rxjs/operators';
 
   }
 
+
+  getAll() {
+    const url = `${this.baseUrl}getAll`;
+    return this.http.post(url, {
+    }).pipe(map((data: any[]) =>
+      data.map((item: any) => new Visit(item.id, item.createdDate, item.visit_date, item.visit_notes, item.med_visit_summary, item.visit_category, item.pet_id, item.vet_id,item.pet,item.vet)
+      )
+    )
+    );
+
+  }
+
   get(idPet: number) {
     const url = `${this.baseUrl}get`;
     return this.http.post(url, {
       id: idPet
     }).pipe(map((data: any[]) =>
-      data.map((item: any) => new Visit(item.id, item.createdDate, item.visit_date, item.visit_notes, item.med_visit_summary, item.visit_category, item.pet_id, item.vet_id)
+      data.map((item: any) => new Visit(item.id, item.createdDate, item.visit_date, item.visit_notes, item.med_visit_summary, item.visit_category, item.pet_id, item.vet_id,null,null)
       )
     )
     );

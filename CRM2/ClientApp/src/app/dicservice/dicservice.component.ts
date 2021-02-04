@@ -54,7 +54,11 @@ export class DicserviceComponent implements OnInit {
 
     },
     { headerName: 'Id', field: 'Id' },
-    { headerName: 'Data utworzenia', field: 'CreatedDate' },
+    {
+      headerName: 'Data utworzenia', field: 'CreatedDate', cellRenderer: (data) => {
+        return data.value ? (new Date(data.value)).toLocaleDateString() : '';
+      }
+    },
     { headerName: 'Nazwa usługi', field: 'dic_services_name' },
     { headerName: 'Cena usługi', field: 'Price' },
   ];

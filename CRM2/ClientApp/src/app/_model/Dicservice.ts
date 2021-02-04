@@ -4,6 +4,5 @@ export class Dicservice {
     public CreatedDate: string,
     public dic_services_name: string,
     public Price: string) {
-
   }
 }

@@ -1,7 +1,7 @@
 export class Owner {
   constructor(
     public Id: number,
-    public CreatedDate: string,
+    public CreatedDate: Date,
     public owner_first_name: string,
     public owner_last_name: string,
     public owner_adress: string,

@@ -35,6 +35,10 @@ namespace CRM2
             {
                 configuration.RootPath = "ClientApp/dist";
             });
+             services.AddControllersWithViews()
+            .AddNewtonsoftJson(options =>
+                         options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+                     );
 
             services.AddScoped(typeof(IGenericRepository<>), typeof(EfRepository<>));
             services.AddScoped<IGenericRepository<Med>, MedRepository>();

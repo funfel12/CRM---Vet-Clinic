@@ -30,31 +30,28 @@
   </div>
 
   <div style="width: 50%; float:right">
-    <div mat-dialog-content>
-      <mat-form-field>
-        <input [(ngModel)]="model.vet_state" name="vet_state" type="text" matInput placeholder="Województwo" required>
-      </mat-form-field>
-      <mat-form-field>
-        <input [(ngModel)]="model.vet_zip" name="vet_zip" type="text" matInput placeholder="Kod pocztowy" required>
-      </mat-form-field>
-      <br />
-      <mat-form-field>
-        <input [(ngModel)]="model.vet_phone" name="vet_phone" type="text" matInput placeholder="Telefon" required>
-      </mat-form-field>
-      <br />
-      <mat-form-field>
-        <input [(ngModel)]="model.vet_email" name="vet_email" type="text" matInput placeholder="Email" required>
-      </mat-form-field>
 
-
-    </div>
+    <mat-form-field>
+      <input [(ngModel)]="model.vet_state" name="vet_state" type="text" matInput placeholder="Województwo" required>
+    </mat-form-field>
+    <mat-form-field>
+      <input [(ngModel)]="model.vet_zip" name="vet_zip" type="text" matInput placeholder="Kod pocztowy" required>
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <input [(ngModel)]="model.vet_phone" name="vet_phone" type="text" matInput placeholder="Telefon" required>
+    </mat-form-field>
+    <br />
+    <mat-form-field>
+      <input [(ngModel)]="model.vet_email" name="vet_email" type="text" matInput placeholder="Email" required>
+    </mat-form-field>
+    <br />
     <div mat-dialog-actions>
-
       <button [disabled]="!vetAddForm.valid" type="submit" mat-stroked-button color="accent" cdkFocusInitial>Dodaj</button>
       <button mat-stroked-button color="warn" type="button" (click)="dialog.closeAll()"><mat-icon>cancel</mat-icon>Nie dziękuje</button>
-
-
-
     </div>
+
   </div>
+ 
+ 
 </form>

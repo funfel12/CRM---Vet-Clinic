@@ -9,7 +9,7 @@
       <ng-container [ngSwitch]="modeView">
         <ng-container *ngSwitchCase="'ser'">
           <button mat-stroked-button color="accent" type="submit" (click)="openDialogAdd()">Dodaj<mat-icon>add</mat-icon></button>
-          <button mat-stroked-button color="accent" type="submit" (click)="refresh()">Odśwież<mat-icon>refresh</mat-icon></button>
+          <button mat-stroked-button color="accent" type="submit" (click)="refreshServ()">Odśwież<mat-icon>refresh</mat-icon></button>
           <button mat-stroked-button color="accent" type="submit">Export <mat-icon>cloud_download</mat-icon></button>
           <button mat-stroked-button color="accent" style="float:right;" (click)="changeModeView('med')">Medykamenty</button>
           <button mat-stroked-button color="accent" style="float:right;" (click)="changeModeView('vac')">Szczepienia</button>
@@ -21,12 +21,11 @@
                            [columnDefs]="columnDefs"
                            [frameworkComponents]="frameworkComponents">
           </ag-grid-angular>
-
 
         </ng-container>
         <ng-container *ngSwitchCase="'vac'">
           <button mat-stroked-button color="accent" type="submit" (click)="openDialogAdd()">Dodaj<mat-icon>add</mat-icon></button>
-          <button mat-stroked-button color="accent" type="submit" (click)="refresh()">Odśwież<mat-icon>refresh</mat-icon></button>
+          <button mat-stroked-button color="accent" type="submit" (click)="refreshVac()">Odśwież<mat-icon>refresh</mat-icon></button>
           <button mat-stroked-button color="accent" type="submit">Export <mat-icon>cloud_download</mat-icon></button>
           <button mat-stroked-button color="accent" style="float:right;" (click)="changeModeView('med')">Medykamenty</button>
           <button mat-stroked-button color="accent" style="float:right;" (click)="changeModeView('vac')">Szczepienia</button>
@@ -39,9 +38,10 @@
                            [frameworkComponents]="frameworkComponents">
           </ag-grid-angular>
         </ng-container>
+
         <ng-container *ngSwitchCase="'med'">
           <button mat-stroked-button color="accent" type="submit" (click)="openDialogAdd()">Dodaj<mat-icon>add</mat-icon></button>
-          <button mat-stroked-button color="accent" type="submit" (click)="refresh()">Odśwież<mat-icon>refresh</mat-icon></button>
+          <button mat-stroked-button color="accent" type="submit" (click)="refreshMed()">Odśwież<mat-icon>refresh</mat-icon></button>
           <button mat-stroked-button color="accent" type="submit">Export <mat-icon>cloud_download</mat-icon></button>
           <button mat-stroked-button color="accent" style="float:right;" (click)="changeModeView('med')">Medykamenty</button>
           <button mat-stroked-button color="accent" style="float:right;" (click)="changeModeView('vac')">Szczepienia</button>
@@ -58,12 +58,6 @@
       </ng-container>
 
 
-
-
-
-
-
-
     </div>
     <div class="line"></div>
     <div class="profil">
@@ -72,6 +66,7 @@
       <br />
       <div class="inputFormEdit">
         <form #visiteditForm="ngForm" (submit)="editVisit()">
+
           <mat-form-field>
             <input matInput [ngxMatDatetimePicker]="picker" placeholder="Data spotkania" [(ngModel)]="visitModel.visit_date" name="visit_date">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -92,12 +87,12 @@
 
           <mat-form-field class="example-full-width">
             <mat-label>Notatka z wizyty</mat-label>
-            <textarea [(ngModel)]="visitModel.visit_notes" matInput placeholder="Notatka z wizyty"  name="visit_notes"></textarea>
+            <textarea [(ngModel)]="visitModel.visit_notes" matInput placeholder="Notatka z wizyty" name="visit_notes"></textarea>
           </mat-form-field>
 
           <mat-form-field class="example-full-width">
             <mat-label>Rezultat z wizyty</mat-label>
-            <textarea [(ngModel)]="visitModel.med_visit_summary" matInput placeholder="Notatka z wizyty"  name="med_visit_summary"></textarea>
+            <textarea [(ngModel)]="visitModel.med_visit_summary" matInput placeholder="Notatka z wizyty" name="med_visit_summary"></textarea>
           </mat-form-field>
 
 
@@ -105,10 +100,14 @@
             <input name="visit_weight" type="text" matInput placeholder="Waga" [(ngModel)]="visitModel.visit_weight">
           </mat-form-field>
 
+
+
           <br />
-          <br />
-          <br />
+
           <button [disabled]="!visiteditForm.valid" type="submit" mat-stroked-button color="accent" cdkFocusInitial>Edytuj</button>
+
+          <br />
+
         </form>
 
       </div>

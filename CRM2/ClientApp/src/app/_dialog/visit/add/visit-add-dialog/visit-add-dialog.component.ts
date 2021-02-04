@@ -24,7 +24,8 @@ export class VisitAddDialogComponent implements OnInit {
 
   constructor(@Inject(MAT_DIALOG_DATA)  public dialogBoxAnimalNumber,private service: VetService, private visitService: VisitService, private alertify: AlertifyService,private dialog: MatDialog, private datePipe: DatePipe, private route: ActivatedRoute)
   {
-    service.getAll().subscribe(next => {
+    service.getAll().subscribe(next =>
+    {
       alertify.sucess("Załadowano lekarzy");
       this.veterinary = [];
       for (let i = 0; i < next.length; i++) {
@@ -32,7 +33,8 @@ export class VisitAddDialogComponent implements OnInit {
         this.veterinary.push(next[i]);
       }
       console.log(this.veterinary);
-    }, error => {
+    }, error =>
+    {
         alertify.error("Wystąpił błąd załadowania lekarzy");
     });
   }

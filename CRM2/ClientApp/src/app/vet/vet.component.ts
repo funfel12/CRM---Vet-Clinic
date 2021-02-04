@@ -55,7 +55,11 @@ export class VetComponent implements OnInit {
 
     },
     { headerName: 'Id', field: 'Id' },
-    { headerName: 'Data utworzenia', field: 'CreatedDate' },
+    {
+      headerName: 'Data utworzenia', field: 'CreatedDate', cellRenderer: (data) => {
+        return data.value ? (new Date(data.value)).toLocaleDateString() : '';
+      }
+    },
     { headerName: 'Imie i Nazwisko', field: 'vet_name' },
     { headerName: 'Adres', field: 'vet_adress' },
     { headerName: 'Miasto', field: 'vet_city' },
