@@ -18,6 +18,7 @@ export class LoginComponent implements OnInit {
   model: any = {};
 
   ngOnInit() {
+    localStorage.removeItem['token'];
   }
 
   login() {
@@ -32,10 +33,6 @@ export class LoginComponent implements OnInit {
     return this.authService.loggedIn()
   }
 
-  logout() {
 
-    localStorage.removeItem('token');
-    console.log('Zostałeś wylogowany');
-  }
 
 }

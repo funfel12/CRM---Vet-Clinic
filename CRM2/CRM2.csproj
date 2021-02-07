@@ -46,6 +46,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="ClientApp\src\app\_guards\" />
     <Folder Include="ClientApp\src\app\_dialog\animal\add\" />
     <Folder Include="ClientApp\src\app\_dialog\animal\delete\" />
     <Folder Include="ClientApp\src\app\_dialog\animal\edit\" />

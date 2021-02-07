@@ -18,6 +18,7 @@ export class VetComponent implements OnInit {
   frameworkComponents: any;
   rowDataClicked1 = {};
   rowDataClicked2 = {};
+  rowDataClicked3 = {};
   rowData = [];
 
 
@@ -54,6 +55,15 @@ export class VetComponent implements OnInit {
       cellRenderer: 'buttonRenderer',
 
     },
+    {
+      cellRendererParams: {
+        onClick: this.onBtnClick3.bind(this),
+        label: 'Przejdź'
+      },
+      headerName: 'Przejdź',
+      cellRenderer: 'buttonRenderer'
+
+    },
     { headerName: 'Id', field: 'Id' },
     {
       headerName: 'Data utworzenia', field: 'CreatedDate', cellRenderer: (data) => {
@@ -80,6 +90,10 @@ export class VetComponent implements OnInit {
   onBtnClick2(e) {
     this.rowDataClicked2 = e.rowData;
     this.openDialogDelete(e.rowData.Id);
+  }
+  onBtnClick3(e) {
+    this.rowDataClicked3 = e.rowData;
+    this.route.navigate(['/vetvisit/' + this.rowDataClicked3['Id']]); 
   }
 
 

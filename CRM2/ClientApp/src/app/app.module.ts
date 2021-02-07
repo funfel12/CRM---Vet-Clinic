@@ -8,8 +8,6 @@ import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { VisitsComponent } from './visits/visits.component'
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatBadgeModule } from '@angular/material/badge';
@@ -103,6 +101,8 @@ import { MedDeleteDialogComponent } from './_dialog/med/delete/med-delete-dialog
 import { ServiceAddDialogComponent } from './_dialog/service/add/service-add-dialog/service-add-dialog.component';
 import { ServiceEditDialogComponent } from './_dialog/service/edit/service-edit-dialog/service-edit-dialog.component';
 import { ServiceDeleteDialogComponent } from './_dialog/service/delete/service-delete-dialog/service-delete-dialog.component';
+import { AuthGuard } from './_guards/auth.guard';
+import { VetvisitComponent } from './vetvisit/vetvisit.component';
 
 
 
@@ -112,8 +112,6 @@ import { ServiceDeleteDialogComponent } from './_dialog/service/delete/service-d
     AppComponent,
     NavMenuComponent,
     HomeComponent,
-    CounterComponent,
-    FetchDataComponent,
     LoginComponent,
     HeadComponent,
     AnimalComponent,
@@ -153,7 +151,8 @@ import { ServiceDeleteDialogComponent } from './_dialog/service/delete/service-d
     MedDeleteDialogComponent,
     ServiceAddDialogComponent,
     ServiceEditDialogComponent,
-    ServiceDeleteDialogComponent
+    ServiceDeleteDialogComponent,
+    VetvisitComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -166,18 +165,18 @@ import { ServiceDeleteDialogComponent } from './_dialog/service/delete/service-d
     FormsModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
       { path: 'login', component: LoginComponent },
-      { path: 'head', component: HeadComponent },
-      { path: 'animal/:animal', component: AnimalComponent },
-      { path: 'visit/:visit', component: VisitComponent },
-      { path: 'vet', component: VetComponent },
-      { path: 'dicvacine', component: DicvacineComponent },
-      { path: 'dicservice', component: DicserviceComponent },
-      { path: 'dicmed', component: DicmedComponent },
-      { path: 'visits', component: VisitsComponent },
-      { path: 'visitedit/:visit', component: VisitEditComponent}
+      { path: 'head', component: HeadComponent, canActivate: [AuthGuard] },
+      { path: 'animal/:animal', component: AnimalComponent, canActivate: [AuthGuard] },
+      { path: 'visit/:visit', component: VisitComponent, canActivate: [AuthGuard] },
+      { path: 'vet', component: VetComponent, canActivate: [AuthGuard]  },
+      { path: 'dicvacine', component: DicvacineComponent, canActivate: [AuthGuard] },
+      { path: 'dicservice', component: DicserviceComponent, canActivate: [AuthGuard] },
+      { path: 'dicmed', component: DicmedComponent, canActivate: [AuthGuard] },
+      { path: 'visits', component: VisitsComponent, canActivate: [AuthGuard] },
+      { path: 'visitedit/:visit', component: VisitEditComponent, canActivate: [AuthGuard] },
+      { path: 'vetvisit/:vet' , component: VetvisitComponent, canActivate: [AuthGuard] },
+      { path: '**', redirectTo: 'LoginComponent' }
     ]),
     BrowserAnimationsModule,
     MatBadgeModule,
@@ -223,6 +222,7 @@ import { ServiceDeleteDialogComponent } from './_dialog/service/delete/service-d
     NgxMaterialTimepickerModule,
     NgxMatDatetimePickerModule,
 
+
     
 
 
@@ -266,7 +266,7 @@ import { ServiceDeleteDialogComponent } from './_dialog/service/delete/service-d
 
   ],
   providers: [AuthService, AlertifyService, AnimalService, VisitService, VetService, DicserviceService, DicmedService,
-    DatePipe, ServiceService, VaccineService, MedService],
+    DatePipe, ServiceService, VaccineService, MedService,AuthGuard],
   bootstrap: [AppComponent],
   entryComponents: [OwnerAddDialogComponent,
     DicmedAddDialogComponent,

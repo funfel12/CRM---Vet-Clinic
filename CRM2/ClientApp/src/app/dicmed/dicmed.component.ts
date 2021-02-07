@@ -76,11 +76,7 @@ export class DicmedComponent implements OnInit {
     this.openDialogDelete(e.rowData.Id);
   }
 
-  onBtnClick3(e) {
-    this.rowDataClicked3 = e.rowData;
-    this.route.navigate(['/animal/' + this.rowDataClicked3['Id']]);
-  }
-
+  
 
   openDialogDelete(dialgBoxIdToDelete: number): void {
     let dialogRef = this.dialog.open(DicmedDeleteDialogComponent, {

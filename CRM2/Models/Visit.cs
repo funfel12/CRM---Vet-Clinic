@@ -13,6 +13,7 @@ namespace CRM2.Models
         //[Key]
        // public int visit_id { get; set; }
         public DateTime visit_date {get; set;}
+        public DateTime visit_end_date { get; set; }
         public float visit_weight { get; set; }
         [MaxLength(2000)]
         public String visit_notes {get; set;}

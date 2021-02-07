@@ -90,6 +90,11 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   background: rgba(126, 103, 207,0.7) !important;
 }
 
+.cal-week-view {
+  background: rgba(126, 103, 207,0.7) !important;
+  overflow:auto !important;
+}
+
 .cal-month-view {
   background: rgba(126, 103, 207,0.5) !important;
   height: 93vh !important;
@@ -107,4 +112,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
  
   background-color: rgba(0, 0, 0, 0.5) !important;
 
+}
+
+.cal-week-view .cal-header.cal-today {
+  background-color: rgba(126, 103, 207,0.2) !important;
 }

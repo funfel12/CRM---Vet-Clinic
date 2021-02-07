@@ -14,6 +14,7 @@ export class AuthService {
   }
 
   jwtHelper = new JwtHelperService();
+  decodedToken: any;
 
   baseUrl = 'http://localhost:49913/api/auth/';
   //http://localhost:49913/api/auth/login
@@ -23,8 +24,14 @@ export class AuthService {
         const user = response;
         if (user) {
           localStorage.setItem('token', user.token);
+          this.decodedToken = this.jwtHelper.decodeToken(user.token);
+
         }
       }));
+  }
+
+  register(model: any) {
+    return this.http.post(this.baseUrl + 'register', model);
   }
 
   loggedIn() {
