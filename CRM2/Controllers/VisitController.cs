@@ -46,7 +46,7 @@ namespace CRM2.Controllers
             Owner owner = data.Where(x => x.pet_id == addDT0.pet_id).Select(x => x.Pet).Select(x=>x.Owner).FirstOrDefault();
             var fromAddress = new MailAddress("mgolas1234@gmail.com", "Wizyta weterynaryjna");
             var toAddress = new MailAddress(owner.owner_email, "To Name");
-            const string fromPassword = "Funfelnowka12@!";
+            const string fromPassword = "*";
             const string subject = "test";
             string body = "Witaj "+ owner.owner_first_name+" "+owner.owner_last_name+"!"+" Masz umówiona wizyte dnia i o godzinie: "+ addDT0.visit_date.ToString("yyyy-MM-dd HH:mm:ss")+" W naszej klinice";
 
