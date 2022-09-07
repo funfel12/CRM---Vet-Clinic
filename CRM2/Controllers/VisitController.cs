@@ -44,7 +44,7 @@ namespace CRM2.Controllers
             var data = await _repository.GetVisitAllData();
 
             Owner owner = data.Where(x => x.pet_id == addDT0.pet_id).Select(x => x.Pet).Select(x=>x.Owner).FirstOrDefault();
-            var fromAddress = new MailAddress("mgolas1234@gmail.com", "Wizyta weterynaryjna");
+            var fromAddress = new MailAddress("*", "Wizyta weterynaryjna");
             var toAddress = new MailAddress(owner.owner_email, "To Name");
             const string fromPassword = "*";
             const string subject = "test";
